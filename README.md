@@ -1,4 +1,6 @@
-# springboot-vue-demmo
+# Warehouse-monitoring-system 仓库监控系统
+
+## This is a warehouse monitoring system, by using springboot, vue, mybatis-plus, etc.
 
 ## Project setup
 ```
