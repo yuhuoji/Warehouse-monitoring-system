@@ -1,0 +1,23 @@
+# yml or properties can be both used to configure, format
+
+# change the serve.port server.port=9090, not 8080
+server:
+  port: 9090
+
+# set database driver
+spring:
+  datasource:
+    # the same as the url in myeclipse
+    # The URL syntax format is as follows
+    # jdbc:mysql: is the fixed format, localhost is your hostname, 3306 is the default MySQL port number
+    # serverTimezone=UTC specifies the time zone to the universal time
+    # useUnicode=true specifies whether to use the Unicode character set and assigns the value to true
+    # characterEncoding=utf-8 specifies the characterEncoding format to UTF8
+    # need to change the hostname when using cloud server
+    # my local database name : mydb
+    url: jdbc:mysql://127.0.0.1:3306/mydb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: niyifei
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# mybatis

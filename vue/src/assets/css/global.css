@@ -1,0 +1,6 @@
+/* 去除默认的样式, 并在main.js中引入 */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
