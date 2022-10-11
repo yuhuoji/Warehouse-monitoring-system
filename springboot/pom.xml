@@ -39,7 +39,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--lombok方便写Java？-->
+        <!--lombok插件 方便写Java-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

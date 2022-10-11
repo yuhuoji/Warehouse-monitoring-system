@@ -1,7 +1,29 @@
-.DS_Store
+
 node_modules
 /dist
 
+# Compiled class file
+*.class
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+/out/
+/target/
+*.ipr
+*.iml
+*.iws
+.idea/
+
+# Maven
+target/
+**/target/
+
+# Mac
+.DS_Store
 
 # local env files
 .env.local
@@ -14,10 +36,19 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Editor directories and files
-.idea
-.vscode
+.vscode/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# others
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.pid
+*.orig
+temp/

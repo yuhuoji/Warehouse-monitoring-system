@@ -1,9 +1,10 @@
 package com.bupt.springboot.controller;
-/* U层，负责接受用户的请求，展示数据，获取用户通过界面所输入的数据。 */
-/* Controller层 Controller（UI）界面控制层*/
 
-/* Result返回前台数据的包装类 */
-
+/*
+ * U层，负责接受用户的请求，展示数据，获取用户通过界面所输入的数据。
+ * Controller层 Controller（UI）界面控制层
+ * Result返回前台数据的包装类
+ * */
 
 import com.bupt.springboot.common.Result;
 import com.bupt.springboot.entity.User;
@@ -16,9 +17,9 @@ import java.util.List;
 
 /* 跨域请求 */
 @CrossOrigin
-/* 返回 javabean ---> json*/
+/* 返回 javabean ---> json */
 @RestController
-/* 统一的路由, 后台接口的路由是/user ？？？？？ */
+/* 统一的路由, 后台接口的路由是/user */
 @RequestMapping("/user")
 public class UserController {
 
@@ -58,7 +59,7 @@ public class UserController {
 
     }
 
- /*   *//* 请求方法为get,返回所有用户信息到前台 *//*
+    /*   *//* 请求方法为get,返回所有用户信息到前台 *//*
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
