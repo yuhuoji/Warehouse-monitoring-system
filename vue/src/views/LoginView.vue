@@ -33,7 +33,8 @@
                             <p v-if="submitVisible" style="color:yellow; text-align: center" v-text="msg"></p><br>
                             <!--submit按钮 v-on-->
                             <el-button size="large" style="text-align: center; " type="success"
-                                       @click="handleSubmit()">submit
+                                       @click="handleSubmit()">
+                                SUBMIT
                             </el-button>
                         </el-form-itemh>
                     </div>

@@ -1,52 +1,36 @@
 <!-- allow managers to create warehouses-->
 <template>
     <!--背景图片-->
-    <div :style="background1" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden">
+    <div :style="background1" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden" >
         <div class="home">
             <div>
-                <Header/>
-                <!--
-                            <div style="display:flex">
-                                &lt;!&ndash;sidebar&ndash;&gt;
-                                <Aside />
-                                &lt;!&ndash;container&ndash;&gt;
-                &lt;!&ndash;                <router-view style="flex:1"/>&ndash;&gt;
-                                </div>
-                -->
+                <!-- 头部-->
+<!--                <Header/>-->
+                <!--  主体-->
 
             </div>
-
             <!-- 3 使用导入的组件实现布局 -->
-            <div style="margin: 40px">
+            <div style="margin: 30px">
                 <el-button type="success" @click="add()">新增仓库</el-button>
                 <!--输入框和输入按钮-->
-                <div style="margin: 10px">
-                    <el-input v-model="searchText" placeholder="please input" style="width:40%"></el-input>
-                    <el-button style="margin-left:10px" type="success" @click="search()">搜索</el-button>
+                <div style="margin: 10px 0">
+                    <el-input v-model="searchText" placeholder="please input" style="width:40%" clearable></el-input>
+                    <el-button style="margin-left:10px" type="success" @click="search()">SEARCH</el-button>
                 </div>
             </div>
-            <br>
 
-            <!--中间展示的表格 el-table表格,prop属性，label列名-->
-            <!--        <el-table :data="tableData" height="250" style="width: 100%">
-                        <el-table-column prop="date" label="Date" width="180" />
-                        <el-table-column prop="name" label="Name" width="180" />
-                        <el-table-column prop="address" label="Address" />
-                    </el-table>-->
-            <el-table :data="warehouseTableData" border stripe style="margin-left:30px;
-        margin-right:20px;
-        width: 95%">
+            <el-table :data="warehouseTableData" border stripe style="margin-left:30px; margin-right:20px; width: 95%">
                 <!--prop属性？？？？-->
-                <el-table-column label="仓库id" prop="warehouseId" sortable/>
-                <el-table-column label="仓库名" prop="warehouseName"/>
+                <el-table-column label="WAREHOUSE ID" prop="warehouseId" sortable/>
+                <el-table-column label="WAREHOUSE NAME" prop="warehouseName"/>
                 <!--操作列-->
-                <el-table-column fixed="right" label="操作" width="100">
+                <el-table-column fixed="right" label="OPERATION" width="150">
+
                     <!--TODO #default="scope"和@click="check(scope.row.id)-->
                     <template #default="scope">
-
                         <!--每一行一个check按钮,跳转到第三页，展示具体一个仓库的信息，包括工人和货物-->
                         <!--当表格某一行被点击时会触发该事件，参数：row, column, event-->
-                        <el-button size="small" style="margin-left: 5px" type="success" @click="check(scope.row)">check
+                        <el-button size="small" style="margin-left: 5px" type="success" @click="check(scope.row)">CHECK
                         </el-button>
 
                     </template>
@@ -69,7 +53,7 @@
                                                 style="margin-left: 30px"
                                                 @size-change="handleSizeChange"
                                                 @current-change="handleCurrentChange"/>-->
-                    <el-pagination :total="10" style="margin-left:20px" background layout="prev, pager, next"/>
+                    <el-pagination :total="10" background layout="prev, pager, next" style="margin-left:20px"/>
 
                     <!--弹窗-->
                     <el-dialog v-model="dialogVisible" title="新增仓库" width="50%">
@@ -103,8 +87,6 @@
     /* 1 import导入组件 */
 
     import request from "@/utils/request";
-    import Header from "@/components/Header";
-    import Aside from "@/components/Aside";
 
     export default {
         name: 'HomeView',
@@ -144,8 +126,7 @@
 
         /*注册用到的组件*/
         components: {
-            Header,
-            Aside
+
             /* 2 在component定义一个组件 */
         },
 
@@ -226,3 +207,7 @@
         }
     }
 </script>
+
+<style scoped>
+
+</style>

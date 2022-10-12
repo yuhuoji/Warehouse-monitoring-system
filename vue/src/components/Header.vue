@@ -1,4 +1,4 @@
-<!--页面头部组件-->
+<!-- 组件库文件，单独封装的公共组件 -->
 <template>
     <!-- header布局，下划线，flex布局 -->
     <div style="height: 50px; line-height: 50px; border-bottom: 1px solid #ffffff; display: flex;background-color:#486eea">
@@ -23,14 +23,27 @@
                 <!--弹窗-->
             </el-dropdown>
             <el-dialog v-model="dialogVisible" title="管理员个人信息" width="50%">
-                <!--展示个人信息-->
-                <el-table :data="userData" border style="width: 100%">
-                    <el-table-column label="用户名" prop="username"/>
-                    <el-table-column label="密码" prop="password"/>
-                </el-table>
+                <!--TODO 展示并修改个人信息-->
+                <el-form ref="userData" :model="userData">
+                    <el-form-item label="USERID">
+                        <el-input v-model="userData.userId" disabled></el-input>
+                    </el-form-item>
+                    <el-form-item label="用户名">
+                        <el-input v-model="userData.username"></el-input>
+                    </el-form-item>
+                    <el-form-item label="密码">
+                        <el-input v-model="userData.password"></el-input>
+                    </el-form-item>
+                </el-form>
+                <!--                <el-table :data="userData" border style="width: 100%">
+                                    <el-table-column label="USERID" prop="userId"/>
+                                    <el-table-column label="用户名" prop="username"/>
+                                    <el-table-column label="密码" prop="password"/>
+                                </el-table>-->
+
                 <template #footer>
                         <span class="dialog-footer">
-                            <el-button @click="modifyInfo">modifyInfo</el-button>
+                            <el-button @click="saveInfo">SaveInfo</el-button>
                             <el-button @click="dialogVisible = false">Leave</el-button>
                         </span>
                 </template>
@@ -45,40 +58,43 @@
         name: "Header",
         data() {
             return {
-                /* form用于展示后台传过来的个人信息 */
+                /* FIXME form用于展示后台传过来的个人信息 */
                 form: {
                     userId: this.$store.state.user.userId,
                     username: "admin",
                     password: this.$store.state.user.password,
                 },
                 dialogVisible: false,
-                // 默认用户名
-                userName: 'admin',
-                /* 想展示的管理员个人信息 */
+                /* TODO 展示并修改个人信息 */
                 userData: [{
                     // userId: "我还没做呢",
+                    userId: '111',
                     username: this.$store.state.user.username,
                     password: this.$store.state.user.password,
                 }]
             }
         },
         components: {},
+        /* 刷新页面方法 */
         activated() {
-            this.form.userId = this.$store.state.user.userId
-            this.form.username = this.$store.state.user.username
-            this.form.password = this.$store.state.user.password
+            this.userData.userId = this.$store.state.user.userId
+            this.userData.username = this.$store.state.user.username
+            this.userData.password = this.$store.state.user.password
         },
         methods: {
             personalInfo() {
                 this.dialogVisible = true
             },
 
-            /* 退出登录，回到登录界面 /login */
-            logOut() {
+            /* 退出登录，回到登录界面 /login  TODO清除信息 */
+            logOut() { /* clear cache */
+                this.$store.commit("saveUserUserId", "")
+                this.$store.commit("saveUserUserName", "")
+                this.$store.commit("saveUserPassword", "")
                 this.$router.push("/login")
             },
 
-            modifyInfo() {
+            saveInfo() {
                 console.log("modifyInfo")
                 alert("我还没做呢")
             }
