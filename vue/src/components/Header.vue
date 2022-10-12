@@ -76,7 +76,7 @@
         },
         components: {},
         /* 刷新页面方法 */
-        activated() {
+        created() {
             this.userData.userId = this.$store.state.user.userId
             this.userData.username = this.$store.state.user.username
             this.userData.password = this.$store.state.user.password
@@ -88,14 +88,14 @@
 
             /* 退出登录，回到登录界面 /login  TODO清除信息 */
             logOut() { /* clear cache */
-                this.$store.commit("saveUserUserId", "")
-                this.$store.commit("saveUserUserName", "")
-                this.$store.commit("saveUserPassword", "")
+                this.$store.commit("saveUserUserId", "111")
+                this.$store.commit("saveUserUserName", "admin")
+                this.$store.commit("saveUserPassword", "123")
                 this.$router.push("/login")
             },
 
             saveInfo() {
-                console.log("modifyInfo")
+                console.log("saveInfo " + this.userData.userId + ", " + this.userData.username + ", " +  this.userData.password)
                 alert("我还没做呢")
             }
 

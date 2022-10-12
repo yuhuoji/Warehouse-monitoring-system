@@ -2,21 +2,22 @@
 <template>
     <div class="common-layout">
         <el-container>
-            <el-header>
-                <!--header头部-->
+
+            <!--header头部-->
+            <el-header class="header_box">
                 <Header/>
             </el-header>
 
             <!--主体-->
             <el-container>
-                <el-aside class="aside_box" width="300px">
-                    <!-- 侧边栏-->
+
+                <!-- 侧边栏-->
+                <el-aside class="aside_box" width="150px">
                     <Aside/>
                 </el-aside>
 
-                <el-main>
-                    <!--内容区域-->
-
+                <!--内容区域-->
+                <el-main class="main_box">
                     <!--router路由 -->
                     <router-view/>
                 </el-main>

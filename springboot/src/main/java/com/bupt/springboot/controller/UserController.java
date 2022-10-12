@@ -34,11 +34,7 @@ public class UserController {
     public Result<?> login(@RequestBody User user) {
         System.out.println("login(@RequestBody User user)");
 
-        /* 用mybatisPlus的QueryWrapper判断是否在数据库里*/
-//        User one = userService.getOne(new QueryWrapper<User>()
-//                .eq("username", user.getUsername())
-//                .eq("password", user.getPassword())
-//        );
+        int userId = -1;
 
         /* 用foreach 判断用户是否合法 */
         boolean userIsValid = false;
@@ -46,10 +42,11 @@ public class UserController {
         for (User userTemp : list) {
             if (user.getUsername().equals(userTemp.getUsername()) && user.getPassword().equals(userTemp.getPassword())) {
                 userIsValid = true;
+                userId = user.getUserId();
                 break;
             }
         }
-        System.out.println("username = " + user.getUsername() + " " + userIsValid + ".");
+        System.out.println("userId = " + userId + ", username = " + user.getUsername() + ", password = " + userIsValid + ".");
         /* 根据查询向前台返回结果 */
         if (userIsValid) {
             return Result.success();

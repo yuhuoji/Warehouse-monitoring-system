@@ -134,6 +134,7 @@
         created() {
             this.load()
         },
+
         /*定义v-on绑定的方法*/
         methods: {
             /* 新增仓库 */
@@ -142,6 +143,7 @@
                 this.dialogVisible = true
                 this.form = {}
             },
+
             /* 保存新增仓库 */
             save() {
                 console.log("save " + this.form.warehouseId)
@@ -189,15 +191,12 @@
             check(row) {
                 /* row-click 当前行*/
                 console.log("check")
-                console.log("row = " + row.warehouseId + " warehouseName =" + row.warehouseName)
-                let warehouseIdTemp = row.warehouseId
-                let warehouseNameTemp = row.warehouseName
-                console.log("warehouseIdTemp = " + warehouseIdTemp)
-                console.log("warehouseNameTemp = " + warehouseNameTemp)
+                console.log("row = " + row.warehouseId + ", warehouseName =" + row.warehouseName)
+                console.log("warehouseId = " + row.warehouseId + ", warehouseName = " + row.warehouseName)
                 /* 保存 */
                 this.$store.commit("saveWarehouseWarehouseId", row.warehouseId)
                 this.$store.commit("saveWarehouseWarehouseName", row.warehouseName)
-                console.log("save over")
+                // console.log("save over")
 
                 /* 进行页面跳转,再根据warehouseId进行页面渲染 */
                 this.$router.push("/warehouse")

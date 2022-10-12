@@ -83,8 +83,8 @@
         /*定义v-on绑定的方法*/
         methods: {
             handleSubmit() {
-                console.log("submit input = " + this.form.username + " " + this.form.password)
-                console.log("submit length = " + this.form.username.length + ", " + this.form.password.length)
+               /* console.log("submit input = " + this.form.username + " " + this.form.password)
+                console.log("submit length = " + this.form.username.length + ", " + this.form.password.length)*/
                 if ((this.form.username.length !== 0) && (this.form.password.length !== 0)) {
                     /* post , res是返回的结果 */
                     request.post("/user/login", this.form).then(res => {
@@ -94,6 +94,7 @@
                             /* 存储个人信息 */
                             this.$store.commit("saveUserUserName", this.form.username)
                             this.$store.commit("saveUserPassword", this.form.password)
+                            console.log("username = " + this.$store.state.user.username + ", password = " + this.$store.state.user.password)
                             /* 登录成功成功后进行页面跳转 */
                             this.$router.push("/home")
                         } else {

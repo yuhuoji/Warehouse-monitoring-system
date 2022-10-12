@@ -4,7 +4,6 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
 <template>
     <div :style="background2" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden">
         <div class="warehouse">
-            <Header/>
             <!-- 3 使用导入的组件实现布局 -->
             <h1 style="margin: 20px;color: white">当前仓库：{{warehouseForm.warehouseName}}</h1>
             <div>

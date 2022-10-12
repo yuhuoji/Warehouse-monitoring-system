@@ -27,7 +27,7 @@ const routes = [
         }
     },
 
-    { /* layout */
+    { /* 主界面，layout + warehouse management  */
         path: '/home',
         component: () => import('@/layout/Layout'),
         children: [
@@ -42,34 +42,39 @@ const routes = [
         ]
     },
 
-    /*    { /!* home页面 *!/
-            path: '/home',
-            name: 'HomeView',
-            component: () => import('@/views/HomeView'),
-            meta: {
-                title: "WAREHOUSE MANAGEMENT"
-            }
-        },*/
-
     {/* TODO 管理工人页面 Worker页面 */
         path: '/worker',
-        name: 'WorkerView',
-        component: () => import('@/views/WorkerView'),
-        meta: {
-            title: "WORKER MANAGEMENT"
-        }
+        component: () => import('@/layout/Layout'),
+        children: [
+            {
+                path: "/worker",
+                name: 'WorkerView',
+                component: () => import('@/views/WorkerView'),
+                meta: {
+                    title: "WORKER MANAGEMENT"
+                }
+            }
+        ]
+
     },
 
     { /* 仓库管理页面 */
         path: '/warehouse',
-        name: 'WarehouseView',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/WarehouseView.vue'),
-        meta: {
-            title: "WAREHOUSE INFORMATION"
-        }
+        component: () => import('@/layout/Layout'),
+        children: [
+            {
+                path: '/warehouse',
+                name: 'WarehouseView',
+                // route level code-splitting
+                // this generates a separate chunk (about.[hash].js) for this route
+                // which is lazy-loaded when the route is visited.
+                component: () => import(/* webpackChunkName: "about" */ '../views/WarehouseView.vue'),
+                meta: {
+                    title: "WAREHOUSE INFORMATION"
+                }
+            }
+        ]
+
     }
 ]
 
