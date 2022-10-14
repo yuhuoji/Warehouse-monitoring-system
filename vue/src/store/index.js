@@ -9,7 +9,7 @@ export default createStore({
 // 全局变量
   state: {
     user:{
-      userId:"111",
+      userId:-1,
       username:"admin",
       password:"123",
     },

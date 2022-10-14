@@ -18,7 +18,7 @@ const routes = [
         }
     },
 
-    {/*  error页面 */
+    { /*  error页面 */
         path: '/error',
         name: 'LoginErrorView',
         component: () => import('@/views/LoginErrorView'), /*, hidden: true*/
@@ -27,7 +27,7 @@ const routes = [
         }
     },
 
-    { /* 主界面，layout + warehouse management  */
+    { /* 主界面home，layout + warehouse management  */
         path: '/home',
         component: () => import('@/layout/Layout'),
         children: [
@@ -37,6 +37,53 @@ const routes = [
                 component: () => import('@/views/HomeView'),
                 meta: {
                     title: "WAREHOUSE MANAGEMENT"
+                }
+            }
+        ]
+    },
+
+    { /* TODO Goods Display 数据可视化 所有的goods */
+        path: '/display/goods',
+        component: () => import('@/layout/Layout'),
+        children: [
+            {
+                path: 'color',
+                name: 'DisplayGoodsByColor',
+                component: () => import('@/views/DisplayGoodsByColor'),
+                meta: {
+                    title: "DISPLAY GOODS BY COLOR"
+                }
+            },
+            {
+                path: 'type',
+                name: 'DisplayGoodsByType',
+                component: () => import('@/views/DisplayGoodsByType'),
+                meta: {
+                    title: "DISPLAY GOODS BY TYPE"
+                }
+            },
+            {
+                path: 'time',
+                name: 'DisplayGoodsByTime',
+                component: () => import('@/views/DisplayGoodsByTime'),
+                meta: {
+                    title: "DISPLAY GOODS BY TIME"
+                }
+            },
+
+        ]
+    },
+
+    { /* TODO Goods 编辑页面 */
+        path: '/goods',
+        component: () => import('@/layout/Layout'),
+        children: [
+            {
+                path: '/goods',
+                name: 'GoodsView',
+                component: () => import('@/views/GoodsView'),
+                meta: {
+                    title: "GOODS MANAGEMENT"
                 }
             }
         ]
@@ -55,7 +102,6 @@ const routes = [
                 }
             }
         ]
-
     },
 
     { /* 仓库管理页面 */
@@ -74,7 +120,6 @@ const routes = [
                 }
             }
         ]
-
     }
 ]
 

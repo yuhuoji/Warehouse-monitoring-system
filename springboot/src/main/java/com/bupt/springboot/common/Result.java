@@ -9,6 +9,36 @@ public class Result<T> {
     /* T是范型，任何一种数据类型都可以被它所包含（模板类？），可以包装不同的东西 */
     private T data;
 
+    public Result() {
+    }
+
+    public Result(T data) {
+        this.data = data;
+    }
+
+    /* 返回, 0 false, 1 true */
+    public static Result success() {
+        Result result = new Result<>();
+        result.setCode("1");
+        result.setMsg("成功");
+        return result;
+    }
+
+    /* TODO 返回数据 Result类 */
+    public static <T> Result<T> success(T data) {
+        Result<T> result = new Result<>(data);
+        result.setCode("1");
+        result.setMsg("成功");
+        return result;
+    }
+
+    public static Result error(String code, String msg) {
+        Result result = new Result();
+        result.setCode(code);
+        result.setMsg(msg);
+        return result;
+    }
+
     /*成功code为0，不成功code不为0*/
     public String getCode() {
         return code;
@@ -34,32 +64,13 @@ public class Result<T> {
         this.data = data;
     }
 
-    public Result() {}
-
-    public Result(T data) {
-        this.data = data;
+    @Override
+    public String toString() {
+        return "Result{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 
-    /* 返回, 0 false, 1 true */
-    public static Result success() {
-        Result result = new Result<>();
-        result.setCode("1");
-        result.setMsg("成功");
-        return result;
-    }
-
-    /* 返回数据 */
-    public static <T> Result<T> success(T data) {
-        Result<T> result = new Result<>(data);
-        result.setCode("1");
-        result.setMsg("成功");
-        return result;
-    }
-
-    public static Result error(String code, String msg) {
-        Result result = new Result();
-        result.setCode(code);
-        result.setMsg(msg);
-        return result;
-    }
 }

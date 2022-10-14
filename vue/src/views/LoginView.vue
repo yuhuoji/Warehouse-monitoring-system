@@ -83,18 +83,21 @@
         /*定义v-on绑定的方法*/
         methods: {
             handleSubmit() {
-               /* console.log("submit input = " + this.form.username + " " + this.form.password)
-                console.log("submit length = " + this.form.username.length + ", " + this.form.password.length)*/
                 if ((this.form.username.length !== 0) && (this.form.password.length !== 0)) {
-                    /* post , res是返回的结果 */
+                    /* post方法 , res是返回的结果 TODO res 获取后端发来的User对象 */
                     request.post("/user/login", this.form).then(res => {
-                        console.log("res" + res + ". res.code = " + res.code + "res.msg" + res.msg)
+                        /*           console.log("res = " + res + ", res.code = " + res.code + ", res.msg = " + res.msg + ", res.data.userId = "
+                                       + res.data.userId + ", res.data.username = " + res.data.username + ", res.data.password = "+ res.data.password)*/
                         if (res.code === "1") {
                             this.$message({type: "success", message: "登陆成功"})
                             /* 存储个人信息 */
-                            this.$store.commit("saveUserUserName", this.form.username)
-                            this.$store.commit("saveUserPassword", this.form.password)
-                            console.log("username = " + this.$store.state.user.username + ", password = " + this.$store.state.user.password)
+                            this.$store.commit("saveUserUserId", res.data.userId)
+                            this.$store.commit("saveUserUserName", res.data.username)
+                            this.$store.commit("saveUserPassword", res.data.password)
+                            console.log("store : userId = " + this.$store.state.user.userId + ", username = " + this.$store.state.user.username +
+                                ", password = " + this.$store.state.user.password)
+                            /* 存在浏览器会话存储里sessionStorage里 */
+                            sessionStorage.setItem('user', JSON.stringify(res.data))
                             /* 登录成功成功后进行页面跳转 */
                             this.$router.push("/home")
                         } else {

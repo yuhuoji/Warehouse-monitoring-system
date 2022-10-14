@@ -88,9 +88,10 @@
 
             /* 退出登录，回到登录界面 /login  TODO清除信息 */
             logOut() { /* clear cache */
-                this.$store.commit("saveUserUserId", "111")
+                this.$store.commit("saveUserUserId", -1)
                 this.$store.commit("saveUserUserName", "admin")
                 this.$store.commit("saveUserPassword", "123")
+                sessionStorage.removeItem("user")
                 this.$router.push("/login")
             },
 

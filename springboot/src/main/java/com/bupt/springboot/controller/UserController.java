@@ -34,7 +34,7 @@ public class UserController {
     public Result<?> login(@RequestBody User user) {
         System.out.println("login(@RequestBody User user)");
 
-        int userId = -1;
+        User userBean = new User();
 
         /* 用foreach 判断用户是否合法 */
         boolean userIsValid = false;
@@ -42,14 +42,17 @@ public class UserController {
         for (User userTemp : list) {
             if (user.getUsername().equals(userTemp.getUsername()) && user.getPassword().equals(userTemp.getPassword())) {
                 userIsValid = true;
-                userId = user.getUserId();
+                userBean.setUserId(userTemp.getUserId());
+                userBean.setUsername(userTemp.getUsername());
+                userBean.setPassword(userTemp.getPassword());
+//                System.out.println("The user : userId = " + userTemp.getUserId() + ", username = " + userTemp.getUsername() + ", password = " + userTemp.getPassword() + ".");
                 break;
             }
         }
-        System.out.println("userId = " + userId + ", username = " + user.getUsername() + ", password = " + userIsValid + ".");
+        System.out.println("login check over");
         /* 根据查询向前台返回结果 */
         if (userIsValid) {
-            return Result.success();
+            return Result.success(userBean);
         } else {
             return Result.error("0", "The user does not exist.");
         }
