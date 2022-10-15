@@ -20,6 +20,8 @@ npm run build
 ```
 
 ## 目录结构描述  
+```
+.
 |— README.md  
 |— package-lock.json  
 |— package.json  
