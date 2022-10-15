@@ -68,7 +68,7 @@ npm run build
 |                   └── bupt  
 |                       └── springboot  
 |                           └── SpringbootApplicationTests.java  
- └── vue  
+└── vue  
     |— babel.config.js  
     |— jsconfig.json  
     |— package-lock.json  
