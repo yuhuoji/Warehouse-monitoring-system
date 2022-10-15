@@ -1,25 +1,3 @@
-# Warehouse-monitoring-system  仓库监控系统
-
-## 项目介绍
-
-This is a warehouse monitoring system, by using springboot, vue, mybatis-plus, etc.
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-## 目录结构描述  
 ```
 .
 |— README.md  
@@ -111,7 +89,8 @@ npm run build
             |— LoginView.vue  
             |— WarehouseView.vue  
             └── WorkerView.vue   
-``` 
-
+```
 ### Customize configuration  
 See [Configuration Reference](https://cli.vuejs.org/config/).  
+
+32 directories, 59 files

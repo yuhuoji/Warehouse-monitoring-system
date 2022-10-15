@@ -1,6 +1,9 @@
-
-node_modules
-/dist
+springboot/.mvn/
+springboot/mvnw
+springboot/mvnw.cmd
+springboot/HELP.md
+springboot/springboot.iml
+node_modules/
 
 # Compiled class file
 *.class
@@ -23,7 +26,7 @@ target/
 **/target/
 
 # Mac
-.DS_Store
+.DS_Store/
 
 # local env files
 .env.local
