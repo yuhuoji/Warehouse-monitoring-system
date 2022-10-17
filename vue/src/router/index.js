@@ -51,7 +51,8 @@ const routes = [
                 name: 'DisplayGoodsByColor',
                 component: () => import('@/views/DisplayGoodsByColor'),
                 meta: {
-                    title: "DISPLAY GOODS BY COLOR"
+                    title: "DISPLAY GOODS BY COLOR",
+                    keepAlive: true
                 }
             },
             {

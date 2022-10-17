@@ -32,14 +32,14 @@ public class WarehouseServiceImpl implements WarehouseService {
     /* 展示所有warehouse */
     public List<Warehouse> displayWarehouse() {
         List<Warehouse> warehouses = warehouseMapper.selectList(null);
-        warehouses.forEach(System.out::println);
+//        warehouses.forEach(System.out::println);
         return warehouses;
     }
 
     public List<?> displayGoodsAndWorkers(Warehouse warehouse) {
         System.out.println("displayGoodsAndWorkers warehouse" + warehouse);
         int id = warehouse.getWarehouseId();
-        /* TODO 分别查两个表，整合返回 */
+        /* XXX 分别查两个表，整合返回 */
         List<Goods> goodsList = warehouseMapper.selectGoods(warehouse.getWarehouseId());
         List<Worker> workerList = warehouseMapper.selectWorkers(warehouse.getWarehouseId());
         List<List> warehouseContent = new ArrayList<List>();

@@ -10,6 +10,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import * as echarts  from 'echarts'
 
 /*导入全局css样式*/
 import '@/assets/css/global.css'

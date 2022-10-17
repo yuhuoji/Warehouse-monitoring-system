@@ -21,7 +21,7 @@ public class User {
     @TableId(value = "user_id", type = IdType.AUTO)
     /* JavaBean里用小驼峰， 对应数据库里的下划线命名， orm自动将关系数据库里的每一行数据转换成一个User，attribute也同时自动对应转换 */
     private Integer userId;
-    private String username;
-    private String password;
+    private String username;  //TODO userName
+    private String password; //TODO userPassword
 
 }

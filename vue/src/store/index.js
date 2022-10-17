@@ -14,8 +14,8 @@ export default createStore({
       password:"123",
     },
     warehouse:{
-      warehouseId:"",
-      warehouseName:"",
+      warehouseId:"2001",
+      warehouseName:"beijingwarehouse",
     }
 
   },

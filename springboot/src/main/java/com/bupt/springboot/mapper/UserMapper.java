@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.bupt.springboot.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
 /* 继承BaseMapper则mybatisPlus可以自动写好增删改查 */
 public interface UserMapper extends BaseMapper<User> {
 
-    /* select all from userinfo */
+    /* select all users from userinfo */
     @Select("select * from userinfo")
     List<User> login();
 

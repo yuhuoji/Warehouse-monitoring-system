@@ -84,7 +84,7 @@
         methods: {
             handleSubmit() {
                 if ((this.form.username.length !== 0) && (this.form.password.length !== 0)) {
-                    /* post方法 , res是返回的结果 TODO res 获取后端发来的User对象 */
+                    /* post方法 , res是返回的结果  res 获取后端发来的User对象 */
                     request.post("/user/login", this.form).then(res => {
                         /*           console.log("res = " + res + ", res.code = " + res.code + ", res.msg = " + res.msg + ", res.data.userId = "
                                        + res.data.userId + ", res.data.username = " + res.data.username + ", res.data.password = "+ res.data.password)*/

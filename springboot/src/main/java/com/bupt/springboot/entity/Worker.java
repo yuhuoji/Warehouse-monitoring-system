@@ -16,7 +16,9 @@ public class Worker {
     @TableId(value = "worker_id", type = IdType.AUTO)
     private int workerId;
     private String workerName;
+    /* FIXME workerPassword*/
     private String password;
+    /* FIXME warehouseId */
     private int warehouseWarehouseId;
 
 }

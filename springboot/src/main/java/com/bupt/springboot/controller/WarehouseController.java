@@ -20,7 +20,7 @@ public class WarehouseController {
     /* 插入仓库，保存仓库名称 */
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public Result<?> saveWarehouse(@RequestBody Warehouse warehouse) {
-        System.out.println("save warehouse_id = " + warehouse.getWarehouseId() + ", warehouse_name = " + warehouse.getWarehouseName() + " ");
+//        System.out.println("save warehouse_id = " + warehouse.getWarehouseId() + ", warehouse_name = " + warehouse.getWarehouseName() + " ");
         int insert = warehouseService.saveWarehouse(warehouse);
         if (insert == 1) {
             return Result.success();
@@ -39,11 +39,10 @@ public class WarehouseController {
 
 
     /* 显示某个仓库的货物状态（如货物位置）和信息（如货物种类）和每个仓库的worker，返回List<List>, goodsList workerList */
-    /* TODO List<List> 和 List<?>*/
     @RequestMapping(value = "/check", method = RequestMethod.POST)
     public List<?> displayGoodsAndWorkers(@RequestBody Warehouse warehouse) {
         //用warehouse_id查询
-        System.out.println("displayGoodsAndWorkers " + warehouse);
+//        System.out.println("displayGoodsAndWorkers " + warehouse);
         List<?> warehouseContent = warehouseService.displayGoodsAndWorkers(warehouse);
         return warehouseContent;
     }

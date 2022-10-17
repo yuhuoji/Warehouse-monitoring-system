@@ -18,7 +18,7 @@ class SpringbootApplicationTests {
 
     /* */
     @DisplayName(" 测试mybatisPlus操作 ")
-    @Test
+//    @Test
     void contextLoads() {
         if (false){
         /* TEST : List<List> */

@@ -23,23 +23,19 @@
                 <!--弹窗-->
             </el-dropdown>
             <el-dialog v-model="dialogVisible" title="管理员个人信息" width="50%">
+
                 <!--TODO 展示并修改个人信息-->
                 <el-form ref="userData" :model="userData">
                     <el-form-item label="USERID">
-                        <el-input v-model="userData.userId" disabled></el-input>
+                        <el-input v-model="userData.userId" class="inputUserData" disabled></el-input>
                     </el-form-item>
                     <el-form-item label="用户名">
-                        <el-input v-model="userData.username"></el-input>
+                        <el-input v-model="userData.username" class="inputUserData" maxlength=10 minlength=6></el-input>
                     </el-form-item>
                     <el-form-item label="密码">
-                        <el-input v-model="userData.password"></el-input>
+                        <el-input v-model="userData.password" class="inputUserData" maxlength=10 minlength=6></el-input>
                     </el-form-item>
                 </el-form>
-                <!--                <el-table :data="userData" border style="width: 100%">
-                                    <el-table-column label="USERID" prop="userId"/>
-                                    <el-table-column label="用户名" prop="username"/>
-                                    <el-table-column label="密码" prop="password"/>
-                                </el-table>-->
 
                 <template #footer>
                         <span class="dialog-footer">
@@ -96,7 +92,7 @@
             },
 
             saveInfo() {
-                console.log("saveInfo " + this.userData.userId + ", " + this.userData.username + ", " +  this.userData.password)
+                console.log("saveInfo " + this.userData.userId + ", " + this.userData.username + ", " + this.userData.password)
                 alert("我还没做呢")
             }
 
@@ -105,5 +101,8 @@
 </script>
 
 <style scoped>
-
+    .inputUserData {
+        float: right;
+        width: 90%;
+    }
 </style>

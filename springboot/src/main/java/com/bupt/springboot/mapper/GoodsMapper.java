@@ -2,14 +2,13 @@ package com.bupt.springboot.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.bupt.springboot.entity.Goods;
-import com.bupt.springboot.entity.Worker;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 @Mapper
-public interface WorkerMapper extends BaseMapper<Worker> {
-    @Select("select * from worker")
+public interface GoodsMapper extends BaseMapper<Goods> {
+    @Select("select * from goods")
     List<Goods> selectAllGoods();
 }

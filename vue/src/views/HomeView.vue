@@ -3,12 +3,6 @@
     <!--背景图片-->
     <div :style="background1" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden" >
         <div class="home">
-            <div>
-                <!-- 头部-->
-<!--                <Header/>-->
-                <!--  主体-->
-
-            </div>
             <!-- 3 使用导入的组件实现布局 -->
             <div style="margin: 30px">
                 <el-button type="success" @click="add()">新增仓库</el-button>
@@ -130,7 +124,7 @@
             /* 2 在component定义一个组件 */
         },
 
-        /* 页面加载方法,vue中created(),mounted()与activated()区别及应用，加载load */
+        /* 页面加载方法,vue执行顺序：created() -> mounted() -> activated() */
         created() {
             this.load()
         },
@@ -160,6 +154,7 @@
                 })
                 this.dialogVisible = false
             },
+            /* TODO 分页 */
             handleSizeChange() {
 
             },
@@ -191,8 +186,8 @@
             check(row) {
                 /* row-click 当前行*/
                 console.log("check")
-                console.log("row = " + row.warehouseId + ", warehouseName =" + row.warehouseName)
-                console.log("warehouseId = " + row.warehouseId + ", warehouseName = " + row.warehouseName)
+                // console.log("row = " + row.warehouseId + ", warehouseName =" + row.warehouseName)
+                // console.log("warehouseId = " + row.warehouseId + ", warehouseName = " + row.warehouseName)
                 /* 保存 */
                 this.$store.commit("saveWarehouseWarehouseId", row.warehouseId)
                 this.$store.commit("saveWarehouseWarehouseName", row.warehouseName)
