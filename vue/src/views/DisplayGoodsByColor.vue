@@ -8,7 +8,7 @@ red blue yellow green
             <h1>Goods Statistics By Color</h1>
         </div>
 
-        <div id="myChart" ref="myChart" :style="{width: '100%', height:'100vh',display:'flex'}"> chart</div>
+        <div id="myChart" ref="myChart" :style="{width: '100%', height:'100vh',display:'flex'}"> </div>
 
     </div>
 </template>
@@ -31,14 +31,14 @@ red blue yellow green
             }
         },
         created() {
-            console.log("created")
+            console.log("DisplayGoodsByColor created")
         },
         activated() {
             console.log("activated")
         },
         /* TODO ??? */
         mounted() {
-            console.log("created")
+            console.log("DisplayGoodsByColor created")
             this.load()
             // this.initPage()
             this.myChart = this.$refs.myChart
@@ -53,7 +53,7 @@ red blue yellow green
         methods: {
             /* 数据加载方法 */
             load() {
-                request.get("/goods/goodsStatisticsByColor").then(res => {
+                request.get("/goods/goodsStatisticsByType").then(res => {
                     console.log("/goods/goodsStatisticsByColor res.data = " + res.data + ", res.code = " + res.code + ", res.msg = " + res.msg)
                     /* FIXME 传数据 */
 
@@ -62,7 +62,7 @@ red blue yellow green
 
                     // this.goodsColorData.splice(0,1,res.data.red) //splice增删改
                     for (let key in res.data) {
-                        console.log(key + "---")
+                        // console.log(key + "---")
                         this.goodsColorData.push({'name': key.toUpperCase(), 'value': res.data[key]})
                     }
 
@@ -120,9 +120,9 @@ red blue yellow green
                         }
                     ]
                 }
-                console.log("set option")
                 this.myChart.setOption(option)
             },
+
             /* 监听图表容器的大小并改变图表大小 */
             resizeCharts(){
                 this.myChart.resize();

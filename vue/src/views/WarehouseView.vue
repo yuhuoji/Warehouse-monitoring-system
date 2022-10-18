@@ -47,8 +47,6 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
         margin-right: 50px;width: 95%">
                 <el-table-column label="goodsId" prop="goodsId" sortable/>
                 <el-table-column label="date" prop="date" sortable/>
-                <el-table-column label="goodsName" prop="goodsName"/>
-                <el-table-column label="goodsColor" prop="goodsColor"/>
                 <el-table-column label="goodsType" prop="goodsType"/>
                 <el-table-column label="warehouseWarehouseId" prop="warehouseWarehouseId"/>
             </el-table>
@@ -131,7 +129,6 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
 
         /*定义用到的组件*/
         components: {
-            Header
             /* 2 在component定义一个组件 */
 
         },
@@ -183,7 +180,7 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                     // console.log("Warehouse页面res = " + res[0][0].goodsId)
                     this.workersTableData = res[1]
                     this.goodsTableData = res[0]
-                    console.log("workersTableData = " + this.workersTableData + ", goodsTableData = " + this.goodsTableData)
+                    // console.log("workersTableData = " + this.workersTableData + ", goodsTableData = " + this.goodsTableData)
                 })
             },
 

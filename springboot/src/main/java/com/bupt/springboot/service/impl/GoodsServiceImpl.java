@@ -27,15 +27,15 @@ public class GoodsServiceImpl implements GoodsService {
     /* 按四种颜色统计仓库里所有的goods，返回Map(key,value)
      * red blue yellow green
      */
-    public Map<String, Long> goodsStatisticsByColor() {
+    public Map<String, Long> goodsStatisticsByType() {
         List<Goods> goodsList = goodsMapper.selectAllGoods();
-        System.out.println("goodsList = " + goodsList.toString());
-        Map<String, Long> goodsColorMap = new HashMap<>();
-        goodsColorMap.put("red", goodsList.stream().filter(goods -> goods.getGoodsColor().equals("red")).count());
-        goodsColorMap.put("blue", goodsList.stream().filter(goods -> goods.getGoodsColor().equals("blue")).count());
-        goodsColorMap.put("yellow", goodsList.stream().filter(goods -> goods.getGoodsColor().equals("yellow")).count());
-        goodsColorMap.put("green", goodsList.stream().filter(goods -> goods.getGoodsColor().equals("green")).count());
-        System.out.println("goodsColorMap = " + goodsColorMap);
-        return goodsColorMap;
+        System.out.println("goodsStatisticsByType goodsList = " + goodsList.toString());
+        Map<String, Long> goodsTypeMap = new HashMap<>();
+        goodsTypeMap.put("red", goodsList.stream().filter(goods -> goods.getGoodsType().equals("red")).count());
+        goodsTypeMap.put("blue", goodsList.stream().filter(goods -> goods.getGoodsType().equals("blue")).count());
+        goodsTypeMap.put("yellow", goodsList.stream().filter(goods -> goods.getGoodsType().equals("yellow")).count());
+        goodsTypeMap.put("green", goodsList.stream().filter(goods -> goods.getGoodsType().equals("green")).count());
+        System.out.println("GoodsTypeMap = " + goodsTypeMap);
+        return goodsTypeMap;
     }
 }

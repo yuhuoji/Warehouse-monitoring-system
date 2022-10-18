@@ -21,10 +21,10 @@ public class Goods {
     /* TODO 日期  date和Sting */
     @JsonFormat(pattern = "yyyy-MM-dd HH-mm:ss", timezone = "GMT+8")
     private Date date;
-    private String goodsName; //TODO to be deleted
-    private String goodsColor; //TODO to be deleted
-    private String goodsType;
+//    private String goodsName;
+//    private String goodsColor;
+    private String goodsType; //商品颜色
     private String goodsPosition;
     /* TODO 外键 warehouseId 删除or添加 */
-    private int warehouseWarehouseId;
+    private int warehouseId;
 }

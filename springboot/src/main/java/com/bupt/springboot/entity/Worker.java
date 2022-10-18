@@ -17,8 +17,8 @@ public class Worker {
     private int workerId;
     private String workerName;
     /* FIXME workerPassword*/
-    private String password;
+    private String workerPassword;
     /* FIXME warehouseId */
-    private int warehouseWarehouseId;
+    private int warehouseId;
 
 }

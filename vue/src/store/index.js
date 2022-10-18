@@ -10,12 +10,12 @@ export default createStore({
   state: {
     user:{
       userId:-1,
-      username:"admin",
-      password:"123",
+      userName:"admin",
+      userPassword:"123",
     },
     warehouse:{
-      warehouseId:"2001",
-      warehouseName:"beijingwarehouse",
+      warehouseId:"1",
+      warehouseName:"Beijing",
     }
 
   },

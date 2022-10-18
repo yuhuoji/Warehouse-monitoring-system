@@ -7,7 +7,7 @@ import java.util.List;
 public interface WarehouseService {
     int saveWarehouse(Warehouse warehouse);
 
-    List<Warehouse> displayWarehouse();
+    List<Warehouse> selectAllWarehouses();
 
     List<?> displayGoodsAndWorkers(Warehouse warehouse);
 }

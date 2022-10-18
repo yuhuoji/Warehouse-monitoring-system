@@ -39,13 +39,14 @@ public class UserController {
         /* 用foreach 判断用户是否合法 */
         boolean userIsValid = false;
         List<User> list = userService.login();
+        System.out.println("user = " + user.toString() + "list = " + list.toString());
         for (User userTemp : list) {
-            if (user.getUsername().equals(userTemp.getUsername()) && user.getPassword().equals(userTemp.getPassword())) {
+            if (user.getUserName().equals(userTemp.getUserName()) && user.getUserPassword().equals(userTemp.getUserPassword())) {
                 userIsValid = true;
                 userBean.setUserId(userTemp.getUserId());
-                userBean.setUsername(userTemp.getUsername());
-                userBean.setPassword(userTemp.getPassword());
-//                System.out.println("The user : userId = " + userTemp.getUserId() + ", username = " + userTemp.getUsername() + ", password = " + userTemp.getPassword() + ".");
+                userBean.setUserName(userTemp.getUserName());
+                userBean.setUserPassword(userTemp.getUserPassword());
+//                System.out.println("The user : userId = " + userTemp.getUserId() + ", UserName = " + userTemp.getUserName() + ", UserPassword = " + userTemp.getUserPassword() + ".");
                 break;
             }
         }

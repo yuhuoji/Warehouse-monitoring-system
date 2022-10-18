@@ -19,13 +19,18 @@ public class WorkerServiceImpl {
     @Autowired
     private WarehouseMapper warehouseMapper;
 
+
+    public List<Worker> selectAllWorkers(){
+        return workerMapper.selectAllWorkers();
+    }
+
     /* TODO 需要输入的warehouseWarehouseId是否在warehouse表中存在 */
     public int saveWorker(Worker worker){
         /* 先进行判断 */
         /* TODO 所有已存在的warehouseId,调用warehouse的mapper？？？ */
         List<Integer> warehouseIdList = warehouseMapper.selectAllWarehouseId();
-        int id = worker.getWarehouseWarehouseId();
-        System.out.println("worker.getWarehouseWarehouseId()" + worker.getWarehouseWarehouseId());
+        int id = worker.getWarehouseId();
+        System.out.println("worker.getWarehouseId()" + worker.getWarehouseId());
         int insert = 1;
         if(warehouseIdList.contains(id)) {
             /* 查询外键约束存在，可以插入 */
@@ -35,7 +40,7 @@ public class WorkerServiceImpl {
             insertWorker.setWorkerName(worker.getWorkerName());
 //            /* TODO 工人密码不应由管理员设置 */
 //            insertWorker.setPassword("1234");
-            insertWorker.setWarehouseWarehouseId(worker.getWarehouseWarehouseId());
+            insertWorker.setWarehouseId(worker.getWarehouseId());
             System.out.println("insertWarehouse = " + insertWorker);
             insert = workerMapper.insert(insertWorker);
             System.out.println("insert = " + insert);

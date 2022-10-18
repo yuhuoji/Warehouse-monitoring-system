@@ -32,11 +32,11 @@ public class GoodsController {
     }
 
     /* 返回goods四种颜色的统计结果 */
-    @RequestMapping(value = "/goodsStatisticsByColor", method = RequestMethod.GET)
-    public Result<?> goodsStatisticsByColor() {
-        Map<String, Long> goodsColorMap = goodsService.goodsStatisticsByColor();
-        if (goodsColorMap.get("red") + goodsColorMap.get("blue") + goodsColorMap.get("green") + goodsColorMap.get("yellow") != 0) {
-            return Result.success(goodsColorMap);
+    @RequestMapping(value = "/goodsStatisticsByType", method = RequestMethod.GET)
+    public Result<?> goodsStatisticsByType() {
+        Map<String, Long> goodsTypeMap = goodsService.goodsStatisticsByType();
+        if (goodsTypeMap.get("red") + goodsTypeMap.get("blue") + goodsTypeMap.get("green") + goodsTypeMap.get("yellow") != 0) {
+            return Result.success(goodsTypeMap);
         } else {
             return Result.error("0", "No data was queried");
         }

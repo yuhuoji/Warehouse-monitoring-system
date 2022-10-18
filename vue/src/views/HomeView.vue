@@ -37,7 +37,7 @@
                     <div class="example-demonstration"></div>
                     <!--total设置变量从后台获取-->
                     <!--                    <el-pagination
-                                                :currentPage="currentPage4"
+                                                :currentPage="currentPage"
                                                 :page-size="10"
                                                 :page-sizes="[5, 10, 20]"
                                                 :total="totalPage"
@@ -160,7 +160,7 @@
             handleCurrentChange() {
 
             },
-            currentPage4() {
+            currentPage() {
 
             },
 

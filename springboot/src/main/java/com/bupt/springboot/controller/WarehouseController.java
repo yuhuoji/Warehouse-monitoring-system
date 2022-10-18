@@ -31,9 +31,9 @@ public class WarehouseController {
 
     /* 显示每个仓库id和仓库名 GET方法, 返回List给前台展示  */
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public List<Warehouse> displayWarehouse() {
+    public List<Warehouse> selectAllWarehouses() {
 //        System.out.println("check warehouse_id = " + warehouse.getWarehouseId() + ", warehouse_name = " + warehouse.getWarehouseName() + " ");
-        List<Warehouse> warehouses = warehouseService.displayWarehouse();
+        List<Warehouse> warehouses = warehouseService.selectAllWarehouses();
         return warehouses;
     }
 

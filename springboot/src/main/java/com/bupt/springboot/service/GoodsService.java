@@ -8,5 +8,5 @@ import java.util.Map;
 public interface GoodsService {
     List<Goods> selectAllGoods();
 
-    public Map<String, Long> goodsStatisticsByColor();
+    Map<String, Long> goodsStatisticsByType();
 }

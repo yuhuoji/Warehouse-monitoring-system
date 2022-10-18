@@ -1,6 +1,5 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import LoginView from "@/views/LoginView";
-import Layout from "../layout/Layout.vue";
 
 /* 定义routes一组路由 */
 const routes = [
