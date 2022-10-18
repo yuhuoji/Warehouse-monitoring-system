@@ -185,13 +185,9 @@
             check(row) {
                 /* row-click 当前行*/
                 console.log("check")
-                // console.log("row = " + row.warehouseId + ", warehouseName =" + row.warehouseName)
-                // console.log("warehouseId = " + row.warehouseId + ", warehouseName = " + row.warehouseName)
                 /* 保存 */
                 this.$store.commit("saveWarehouseWarehouseId", row.warehouseId)
                 this.$store.commit("saveWarehouseWarehouseName", row.warehouseName)
-                // console.log("save over")
-
                 /* 进行页面跳转,再根据warehouseId进行页面渲染 */
                 this.$router.push("/warehouse")
 

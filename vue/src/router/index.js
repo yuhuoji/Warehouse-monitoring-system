@@ -62,14 +62,6 @@ const routes = [
                     title: "DISPLAY GOODS BY TIME"
                 }
             },
-            {
-                path: 'type',
-                name: 'DisplayGoodsByType',
-                component: () => import('@/views/DisplayGoodsByType'),
-                meta: {
-                    title: "DISPLAY GOODS BY TYPE"
-                }
-            },
         ]
     },
 
@@ -131,7 +123,6 @@ const router = createRouter({
 
 router.afterEach((to, from) => {
     document.title = to.meta.title //在全局后置守卫中获取路由元信息设置title
-
 })
 
 export default router

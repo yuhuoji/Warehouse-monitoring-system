@@ -100,7 +100,19 @@ red blue yellow green
                             itemStyle: {
                                 borderRadius: 10,
                                 borderColor: '#fff',
-                                borderWidth: 2
+                                borderWidth: 2,
+                                normal: {
+                                    color: function (colors) {
+                                        const colorList = [
+                                            '#FF0000',
+                                            '#7FFF00',
+                                            '#0000FF',
+                                            '#FFFF00',
+
+                                        ];
+                                        return colorList[colors.dataIndex];
+                                    }
+                                },
                             },
                             label: {
                                 show: false,

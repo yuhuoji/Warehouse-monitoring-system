@@ -47,7 +47,6 @@
                         <el-menu-item-group title="AllGoods">
                             <el-menu-item index="/display/goods/color">ByColor</el-menu-item>
                             <el-menu-item index="/display/goods/time">ByTime</el-menu-item>
-                            <el-menu-item index="/display/goods/type">ByType</el-menu-item>
                         </el-menu-item-group>
                         <el-menu-item-group title="Classification">
                             <el-sub-menu index="1-2">
