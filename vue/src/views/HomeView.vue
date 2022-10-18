@@ -14,13 +14,12 @@
             </div>
 
             <el-table :data="warehouseTableData" border stripe style="margin-left:30px; margin-right:20px; width: 95%">
-                <!--prop属性？？？？-->
+                <!--prop属性 -->
                 <el-table-column label="WAREHOUSE ID" prop="warehouseId" sortable/>
                 <el-table-column label="WAREHOUSE NAME" prop="warehouseName"/>
                 <!--操作列-->
                 <el-table-column fixed="right" label="OPERATION" width="150">
 
-                    <!--TODO #default="scope"和@click="check(scope.row.id)-->
                     <template #default="scope">
                         <!--每一行一个check按钮,跳转到第三页，展示具体一个仓库的信息，包括工人和货物-->
                         <!--当表格某一行被点击时会触发该事件，参数：row, column, event-->

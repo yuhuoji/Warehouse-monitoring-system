@@ -1,7 +1,7 @@
 <!--数据可视化 所有商品-->
 <template>
     <div>
-        <h1>GoodsTime</h1>
+        <h1>GoodsPosition</h1>
     </div>
 </template>
 
@@ -11,9 +11,7 @@
         data() {
             return {}
         },
-        methods: {
-
-        }
+        methods: {}
     }
 </script>
 

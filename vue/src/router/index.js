@@ -56,14 +56,6 @@ const routes = [
                 }
             },
             {
-                path: 'type',
-                name: 'DisplayGoodsByType',
-                component: () => import('@/views/DisplayGoodsByType'),
-                meta: {
-                    title: "DISPLAY GOODS BY TYPE"
-                }
-            },
-            {
                 path: 'time',
                 name: 'DisplayGoodsByTime',
                 component: () => import('@/views/DisplayGoodsByTime'),
@@ -71,7 +63,14 @@ const routes = [
                     title: "DISPLAY GOODS BY TIME"
                 }
             },
-
+            {
+                path: 'type',
+                name: 'DisplayGoodsByType',
+                component: () => import('@/views/DisplayGoodsByType'),
+                meta: {
+                    title: "DISPLAY GOODS BY TYPE"
+                }
+            },
         ]
     },
 
