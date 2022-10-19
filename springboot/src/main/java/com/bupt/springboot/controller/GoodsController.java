@@ -1,13 +1,11 @@
 package com.bupt.springboot.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bupt.springboot.common.Result;
 import com.bupt.springboot.entity.Goods;
 import com.bupt.springboot.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -30,6 +28,25 @@ public class GoodsController {
             return Result.error("0", "No data was queried");
         }
     }
+
+    /**
+     * 分页查询
+     *
+     * @param pageNum  当前页
+     * @param pageSize 当前每页大小
+     * @param search   搜索内容
+     * @return Result
+     */
+    @RequestMapping(value = "/findPage", method = RequestMethod.GET)
+    public Result<?> findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam String search) {
+//        goodsService.
+        if (true) {
+            return Result.success();
+        } else {
+            return Result.error("0", "Search error.");
+        }
+    }
+
 
     /* 返回goods四种颜色的统计结果 */
     @RequestMapping(value = "/goodsStatisticsByType", method = RequestMethod.GET)

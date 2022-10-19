@@ -16,6 +16,6 @@ public interface UserMapper extends BaseMapper<User> {
 
     /* select all users from userinfo */
     @Select("select * from userinfo")
-    List<User> login();
+    List<User> selectAllUser();
 
 }

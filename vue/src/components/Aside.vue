@@ -7,7 +7,7 @@
                 <!-- el-menu添加router后，根据index进行路由跳转 -->
                 <el-menu class="el-menu-vertical-demo" default-active="2"
                          router
-                         style="width: 150px"
+                         style="width: 200px"
                          @close="handleClose" @open="handleOpen">
                     <el-menu-item index="/home">
                         <el-icon>
@@ -40,7 +40,7 @@
                     <el-sub-menu index="1">
                         <template #title>
                             <el-icon>
-<!--                                <location/>-->
+                                <location/>
                             </el-icon>
                             <span>Goods Display</span>
                         </template>
@@ -94,9 +94,9 @@
 
 <style scoped>
 
-    span {
+  /*  span {
         margin-left: -40px
-    }
+    }*/
 
 </style>
 

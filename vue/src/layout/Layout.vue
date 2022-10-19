@@ -12,7 +12,7 @@
             <el-container>
 
                 <!-- 侧边栏-->
-                <el-aside class="aside_box" width="150px">
+                <el-aside class="aside_box" width="200px">
                     <Aside/>
                 </el-aside>
 

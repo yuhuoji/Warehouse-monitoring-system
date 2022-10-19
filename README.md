@@ -27,7 +27,10 @@ $ npm install @element-plus/icons-vue
 ```
 #### Register all icons
 ```
-
+const app = createApp(App)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+}
 ```
 ## Directory structure description  
 ```
@@ -37,8 +40,7 @@ $ npm install @element-plus/icons-vue
 |— package.json  
 |  
 |— springboot  
-|   |— HELP.md  
-|   |— pom.xml  
+|   |— pom.xml  Major project build files for the project, and associated configuration files
 |   └── src  
 |       |— main  
 |       |   |— java  
@@ -48,7 +50,7 @@ $ npm install @element-plus/icons-vue
 |       |   |               |— SpringbootApplication.java  
 |       |   |               |— common  
 |       |   |               |   |— MybatisPlusConfig.java  
-|       |   |               |   └── Result.java  
+|       |   |               |   └── Result.java  Spring Boot's generic return class
 |       |   |               |— controller  
 |       |   |               |   |— GoodsController.java
 |       |   |               |   |— UserController.java   
@@ -75,7 +77,7 @@ $ npm install @element-plus/icons-vue
 |       |   |                       |— WarehouseServiceImpl.java  
 |       |   |                       └── WorkerServiceImpl.java  
 |       |   └── resources  
-|       |       |— application.yml  
+|       |       |— application.yml  Properties Configuration file
 |       |       |— static  
 |       |       └── templates  
 |       └── test  
@@ -87,7 +89,6 @@ $ npm install @element-plus/icons-vue
 |                       └── service
 |                           └── impl
 |                               └── GoodsServiceImplTest.java
-|
 └── vue  
     |— babel.config.js  
     |— jsconfig.json  
@@ -102,33 +103,32 @@ $ npm install @element-plus/icons-vue
         |— assets  
         |— main.js  
         |   |— css  
-        |   |   └── global.css  
+        |   |   └── global.css  Global style file
         |   |— background.jpg  
         |   |— background1.jpg  
         |   |— background2.jpg  
         |   |— error.jpg  
         |   └── logo.png  
         |— components  
-        |   |— Aside.vue  
-        |   └── Header.vue  
+        |   |— Aside.vue  The sidebar
+        |   └── Header.vue  The top bar
         |— layout  
-        |   └── Layout.vue  
+        |   └── Layout.vue  The page layout
         |— router   
-        |   └── index.js  
+        |   └── index.js  Route definition and configuration
         |— store  
-        |   └── index.js  
+        |   └── index.js  Manage global variables to facilitate value transfer between components
         |— utils  
-        |   └── request.js  
+        |   └── request.js  Tool file
         └── views  
-            |— DisplayGoodsByColor.vue  
-            |— DisplayGoodsByTime.vue  
-            |— DisplayGoodsByType.vue  
-            |— GoodsView.vue  
-            |— HomeView.vue  
-            |— LoginErrorView.vue  
-            |— LoginView.vue  
-            |— WarehouseView.vue  
-            └── WorkerView.vue   
+            |— DisplayGoodsByTime.vue  Data visualization - by product date
+            |— DisplayGoodsByType.vue  Data visualization - by product color
+            |— GoodsView.vue  Goods Information Page
+            |— HomeView.vue  The main page
+            |— LoginErrorView.vue  Login failure page
+            |— LoginView.vue  Login page
+            |— WarehouseView.vue  Warehouse Information Page
+            └── WorkerView.vue   Worker Information Page
 ``` 
 
 ## Customize configuration  

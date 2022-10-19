@@ -38,7 +38,7 @@ public class UserController {
 
         /* 用foreach 判断用户是否合法 */
         boolean userIsValid = false;
-        List<User> list = userService.login();
+        List<User> list = userService.selectAllUser();
         System.out.println("user = " + user.toString() + "list = " + list.toString());
         for (User userTemp : list) {
             if (user.getUserName().equals(userTemp.getUserName()) && user.getUserPassword().equals(userTemp.getUserPassword())) {

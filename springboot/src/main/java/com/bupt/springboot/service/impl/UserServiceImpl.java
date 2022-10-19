@@ -34,8 +34,9 @@ public class UserServiceImpl implements UserService {
 
     /* 具体实现service接口 */
     @Override
-    public List<User> login() {
-        return userMapper.login();
+    public List<User> selectAllUser() {
+        return userMapper.selectAllUser();
     }
+
 
 }

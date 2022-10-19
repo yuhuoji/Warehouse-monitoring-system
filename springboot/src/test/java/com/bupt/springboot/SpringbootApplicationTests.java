@@ -3,7 +3,6 @@ package com.bupt.springboot;
 import com.bupt.springboot.entity.User;
 import com.bupt.springboot.mapper.UserMapper;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -50,8 +49,8 @@ class SpringbootApplicationTests {
 
 //        insert
         User insertUser = new User();
-        insertUser.setUsername("insert");
-        insertUser.setPassword("insertpassword");
+        insertUser.setUserName("insert");
+        insertUser.setUserPassword("insert password");
         int insert = userMapper.insert(insertUser);
         System.out.println("insert = " + insert);
 /*

@@ -28,10 +28,18 @@
 
         <div style="margin: 10px">
             <!-- 分页查询 -->
-            <el-pagination :currentPage="currentPage" :page-size="10" :page-sizes="[5, 10, 20]" :total="total"
-                           layout="total, sizes, prev, pager, next, jumper"
-                           @size-change="handleSizeChange"
-                           @current-change="handleCurrentChange"/>
+            <el-pagination
+                    v-model:currentPage="currentPage"
+                    v-model:page-size="pageSize"
+                    :background=true
+                    :disabled="disabled"
+                    :page-sizes="[10, 20, 50, 100]"
+                    :small="small"
+                    :total="total"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+            />
 
             <el-dialog v-model="dialogVisible" title="Check Position" width="30%">
                 <!--                <el-form :model="form" label-width="120px">
@@ -75,8 +83,9 @@
         data() {
             return {
                 searchText: "",
+                pageSize: 1,
                 currentPage: 1,
-                total: 10,
+                total: 45,
                 goodsTableData: [],
                 dialogVisible: false,
                 imgUrl: require('../assets/visualization.png')
@@ -95,7 +104,9 @@
                 })
             },
             search() {
-
+                request.get("").then(res=>{
+                    console.log("res = " + res)
+                })
             },
             checkPosition(row) {
                 this.dialogVisible = true

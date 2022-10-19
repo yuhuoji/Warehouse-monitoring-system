@@ -11,6 +11,6 @@ public interface UserService {
 //    int deleteById(Integer id);
 
     /* 定义接口 */
-    public List<User> login();
+    public List<User> selectAllUser();
 
 }
