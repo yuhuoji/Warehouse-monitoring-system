@@ -40,7 +40,7 @@
                     <el-sub-menu index="1">
                         <template #title>
                             <el-icon>
-                                <location/>
+<!--                                <location/>-->
                             </el-icon>
                             <span>Goods Display</span>
                         </template>

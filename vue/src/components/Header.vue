@@ -10,7 +10,8 @@
             <el-dropdown style="padding-top:0">
                 <span class="el-dropdown-link" style="color: white">
                   {{ form.username }}
-                  <i class="el-icon-arrow-down el-icon--right"></i>
+                    <el-icon class="el-icon--right"><arrow-down /></el-icon>
+<!--                  <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
                 </span>
 
                 <template #dropdown>
@@ -50,6 +51,8 @@
 </template>
 
 <script>
+
+
     export default {
         name: "Header",
         data() {

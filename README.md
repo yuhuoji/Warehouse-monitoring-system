@@ -19,7 +19,17 @@ npm run serve
 npm run build
 ```
 
-## 目录结构描述  
+### Use Element Plus icon
+#### Use the package manager to install
+```
+# NPM
+$ npm install @element-plus/icons-vue
+```
+#### Register all icons
+```
+
+```
+## Directory structure description  
 ```
 .
 |— README.md  
@@ -40,6 +50,7 @@ npm run build
 |       |   |               |   |— MybatisPlusConfig.java  
 |       |   |               |   └── Result.java  
 |       |   |               |— controller  
+|       |   |               |   |— GoodsController.java
 |       |   |               |   |— UserController.java   
 |       |   |               |   |— WarehouseController.java    
 |       |   |               |   └── WorkerController.java    
@@ -49,14 +60,17 @@ npm run build
 |       |   |               |   |— Warehouse.java  
 |       |   |               |   └── Worker.java  
 |       |   |               |— mapper  
+|       |   |               |   |— GoodsMapper.java
 |       |   |               |   |— UserMapper.java  
 |       |   |               |   |— WarehouseMapper.java  
 |       |   |               |   └── WorkerMapper.java  
-|       |   |               └── service  
+|       |   |               └── service 
+|       |   |                   |— GoodsService.java 
 |       |   |                   |— UserService.java    
 |       |   |                   |— WarehouseService.java  
 |       |   |                   |— WorkerService.java  
 |       |   |                   └── impl  
+|       |   |                       |— GoodsServiceImpl.java
 |       |   |                       |— UserServiceImpl.java  
 |       |   |                       |— WarehouseServiceImpl.java  
 |       |   |                       └── WorkerServiceImpl.java  
@@ -68,8 +82,12 @@ npm run build
 |           └── java  
 |               └── com  
 |                   └── bupt  
-|                       └── springboot  
-|                           └── SpringbootApplicationTests.java  
+|                       |— springboot  
+|                       |   └── SpringbootApplicationTests.java
+|                       └── service
+|                           └── impl
+|                               └── GoodsServiceImplTest.java
+|
 └── vue  
     |— babel.config.js  
     |— jsconfig.json  
@@ -113,5 +131,5 @@ npm run build
             └── WorkerView.vue   
 ``` 
 
-### Customize configuration  
+## Customize configuration  
 See [Configuration Reference](https://cli.vuejs.org/config/).  
