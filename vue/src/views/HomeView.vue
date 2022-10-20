@@ -5,25 +5,25 @@
         <div class="home">
             <!-- 3 使用导入的组件实现布局 -->
             <div style="margin: 30px">
-                <el-button type="success" @click="add()">新增仓库</el-button>
+                <el-button type="success" @click="add()"><el-icon style="margin-right: 5px" size="large"><Plus /></el-icon>Add</el-button>
                 <!--输入框和输入按钮-->
-                <div style="margin: 10px 0">
-                    <el-input v-model="searchText" placeholder="please input" style="width:40%" clearable></el-input>
-                    <el-button style="margin-left:10px" type="success" @click="search()">SEARCH</el-button>
-                </div>
+                <span style="margin: 10px 10px">
+                    <el-input v-model="searchText" placeholder="Please input..." style="width:40%" clearable></el-input>
+                    <el-button style="margin-left:10px" type="primary" @click="search()"><el-icon style="margin-right: 5px" size="large"><Search /></el-icon>Search</el-button>
+                </span>
             </div>
 
             <el-table :data="warehouseTableData" border stripe style="margin-left:30px; margin-right:20px; width: 95%">
                 <!--prop属性 -->
-                <el-table-column label="WAREHOUSE ID" prop="warehouseId" sortable/>
-                <el-table-column label="WAREHOUSE NAME" prop="warehouseName"/>
+                <el-table-column label="Warehouse Id" prop="warehouseId" sortable/>
+                <el-table-column label="Warehouse Name" prop="warehouseName"/>
                 <!--操作列-->
-                <el-table-column fixed="right" label="OPERATION" width="150">
+                <el-table-column fixed="right" label="Operation" width="150">
 
                     <template #default="scope">
                         <!--每一行一个check按钮,跳转到第三页，展示具体一个仓库的信息，包括工人和货物-->
                         <!--当表格某一行被点击时会触发该事件，参数：row, column, event-->
-                        <el-button size="small" style="margin-left: 5px" type="success" @click="check(scope.row)">CHECK
+                        <el-button size="small" style="margin-left: 5px" type="primary" @click="check(scope.row)"><el-icon style="margin-right: 5px"><Check /></el-icon>Check
                         </el-button>
 
                     </template>
@@ -49,22 +49,22 @@
                     <el-pagination :total="10" background layout="prev, pager, next" style="margin-left:20px"/>
 
                     <!--弹窗-->
-                    <el-dialog v-model="dialogVisible" title="新增仓库" width="50%">
+                    <el-dialog v-model="dialogVisible" title="Add a warehouse" width="50%">
 
                         <el-form :model="form" label-width="120px">
                             <!--新增 创建仓库-->
-                            <el-form-item label="仓库id">
+                            <el-form-item label="Warehouse Id">
                                 <el-input v-model="form.warehouseId"/>
                             </el-form-item>
-                            <el-form-item label="仓库名称">
+                            <el-form-item label="Name">
                                 <el-input v-model="form.warehouseName"/>
                             </el-form-item>
                         </el-form>
 
                         <template #footer>
                         <span class="dialog-footer">
-                            <el-button @click="dialogVisible = false">Cancel</el-button>
-                            <el-button type="primary" @click="save">Confirm</el-button>
+                            <el-button type="warning" @click="dialogVisible = false">Cancel</el-button>
+                            <el-button type="success" @click="save">Confirm</el-button>
                         </span>
                         </template>
                     </el-dialog>

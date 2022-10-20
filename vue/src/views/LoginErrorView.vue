@@ -6,7 +6,7 @@
             <el-button style="height:20%; width:15%;margin-left:160px;
             margin-top:150px"
                        @click="returnPage()">
-            登陆失败
+                Incorrect username or password.
             </el-button>
 <!--            </div>-->
 

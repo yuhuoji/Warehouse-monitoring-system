@@ -1,14 +1,14 @@
 <!--
-数据可视化 所有商品 颜色
+data visualization
 red blue yellow green
  -->
 <template>
     <div>
-        <div class="title">
-            <h1>Goods Statistics By Color</h1>
+        <div class="title" style="margin: 10px 0 0 0 ;text-align:center;">
+            <h1>Goods Color Pie Chart</h1>
         </div>
 
-        <div id="myChart" ref="myChart" :style="{width: '100%', height:'100vh',display:'flex'}"> </div>
+        <div id="myChart" ref="myChart" :style="{width: '100%', height:'100vh',display:'flex'}"></div>
 
     </div>
 </template>
@@ -68,7 +68,7 @@ red blue yellow green
 
                     this.initPage()
 
-                    if (res.code == "1") {
+                    if (res.code === "1") {
                         console.log("goodsDisplayByColor")
                     } else {
                         console.log(res.msg)
@@ -80,8 +80,6 @@ red blue yellow green
             /* Page initialization */
             initPage() {
                 this.myChart = echarts.init(document.getElementById('myChart')); //初始化
-                /* TODO 加载goods数据 */
-                // this.load()
 
                 let option = {
                     tooltip: {
@@ -104,10 +102,20 @@ red blue yellow green
                                 normal: {
                                     color: function (colors) {
                                         const colorList = [
-                                            '#FF0000',
-                                            '#7FFF00',
-                                            '#0000FF',
-                                            '#FFFF00',
+                                            '#ee6666',
+                                            '#3ba272',
+                                            '#5470c6',
+                                            '#fac858',
+
+                                    /*        '#5470c6',
+                                            '#91cc75',
+                                            '#fac858',
+                                            '#ee6666',
+                                            '#73c0de',
+                                            '#3ba272',
+                                            '#fc8452',
+                                            '#9a60b4',
+                                            '#ea7ccc',*/
 
                                         ];
                                         return colorList[colors.dataIndex];
@@ -136,7 +144,7 @@ red blue yellow green
             },
 
             /* 监听图表容器的大小并改变图表大小 */
-            resizeCharts(){
+            resizeCharts() {
                 this.myChart.resize();
             }
         },
@@ -146,7 +154,7 @@ red blue yellow green
 </script>
 
 <style scoped>
-.title{
-     margin: 10px auto;
-}
+    .title {
+
+    }
 </style>

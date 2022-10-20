@@ -9,7 +9,7 @@
             </el-header>
 
             <!--主体-->
-            <el-container>
+            <el-container >
 
                 <!-- 侧边栏-->
                 <el-aside class="aside_box" width="200px">

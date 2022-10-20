@@ -2,51 +2,58 @@
 <template>
     <!-- header布局，下划线，flex布局 -->
     <div style="height: 50px; line-height: 50px; border-bottom: 1px solid #ffffff; display: flex;background-color:#486eea">
-        <div style="width: 200px;padding-left:30px;font-weight:bold;color:#ffffff">管理员后台页面</div>
+        <!--        <el-icon style="text-align:center;">
+                    <Monitor/>
+                </el-icon>-->
+        <h3 style="width: 200px;padding-left:30px;font-weight:bold;color:#ffffff"><el-icon style="margin: 0 10px 0 0" size="large"><Monitor /></el-icon>Administrator background page
+        </h3>
         <div style="flex: 1"></div>
-        <div style="width: 100px;padding-top:20px">
+        <span style="width: 100px;padding-top:20px;">
 
             <!--下拉框，引用element的额dropdown-->
             <el-dropdown style="padding-top:0">
-                <span class="el-dropdown-link" style="color: white">
+
+                <span class="el-dropdown-link" style="color: white"><el-icon><Setting/></el-icon>
                   {{ form.username }}
-                    <el-icon class="el-icon--right"><arrow-down /></el-icon>
-<!--                  <i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+                    <el-icon class="el-icon--right"><arrow-down/></el-icon>
                 </span>
 
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item @click="personalInfo()">个人信息</el-dropdown-item>
-                        <el-dropdown-item @click="logOut()">退出系统</el-dropdown-item>
+                        <el-dropdown-item @click="personalInfo()"><el-icon><UserFilled /></el-icon>Personal information</el-dropdown-item>
+                        <el-dropdown-item @click="logOut()"><el-icon><SwitchButton /></el-icon>Log out</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
 
-                <!--弹窗-->
+
             </el-dropdown>
-            <el-dialog v-model="dialogVisible" title="管理员个人信息" width="50%">
+        </span>
 
-                <!--TODO 展示并修改个人信息-->
-                <el-form ref="userData" :model="userData">
-                    <el-form-item label="USERID">
-                        <el-input v-model="userData.userId" class="inputUserData" disabled></el-input>
-                    </el-form-item>
-                    <el-form-item label="用户名">
-                        <el-input v-model="userData.username" class="inputUserData" maxlength=10 minlength=6></el-input>
-                    </el-form-item>
-                    <el-form-item label="密码">
-                        <el-input v-model="userData.password" class="inputUserData" maxlength=10 minlength=6></el-input>
-                    </el-form-item>
-                </el-form>
+        <!--弹窗-->
+        <el-dialog v-model="dialogVisible" title="Administrator's personal information" width="50%">
 
-                <template #footer>
+            <!--TODO 修改个人信息-->
+            <el-form ref="userData" :model="userData">
+                <el-form-item label="User Id">
+                    <el-input v-model="userData.userId" class="inputUserData" disabled></el-input>
+                </el-form-item>
+                <el-form-item label="User Name">
+                    <el-input v-model="userData.username" class="inputUserData" maxlength=10 minlength=6></el-input>
+                </el-form-item>
+                <el-form-item label="Password">
+                    <el-input v-model="userData.password" class="inputUserData" maxlength=10 minlength=6></el-input>
+                </el-form-item>
+            </el-form>
+
+            <template #footer>
                         <span class="dialog-footer">
-                            <el-button @click="saveInfo">SaveInfo</el-button>
-                            <el-button @click="dialogVisible = false">Leave</el-button>
+                            <el-button @click="saveInfo" type="success">SaveInfo</el-button>
+                            <el-button @click="dialogVisible = false" >Leave</el-button>
                         </span>
-                </template>
-            </el-dialog>
+            </template>
+        </el-dialog>
 
-        </div>
+
     </div>
 </template>
 

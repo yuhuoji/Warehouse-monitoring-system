@@ -9,6 +9,9 @@
                 <el-form :model="form" label-width="30%" style="margin-left: 50px">
                     <el-form-item>
                         <!--更改label样式-->
+                        <el-icon style="color: white" size="large">
+                            <UserFilled/>
+                        </el-icon>
                         <span slot="label">
                             <span style="color: white">USERNAME</span>
                         </span>
@@ -19,8 +22,11 @@
                     <br>
                     <el-form-item>
                         <!--更改label样式-->
+                        <el-icon style="color: white" size="large">
+                            <Key/>
+                        </el-icon>
                         <span slot="label">
-                            <span style="color: white">PASSWORD</span>
+                            <span style="color: white" >PASSWORD</span>
                         </span>
                         <el-input v-model="form.userPassword" clearable maxlength="20"
                                   placeholder="Please input your password"
@@ -34,7 +40,7 @@
                             <!--submit按钮 v-on-->
                             <el-button size="large" style="text-align: center; " type="success"
                                        @click="handleSubmit()">
-                                SUBMIT
+                                <el-icon style="margin-right: 5px" size="large"><Finished /></el-icon>SUBMIT
                             </el-button>
                         </el-form-itemh>
                     </div>

@@ -5,70 +5,73 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
     <div :style="background2" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden">
         <div class="warehouse">
             <!-- 3 使用导入的组件实现布局 -->
-            <h1 style="margin: 20px;color: white">当前仓库：{{warehouseForm.warehouseName}}</h1>
-            <div>
-                <el-button style="margin-left:10px" type="success" @click="returnPage()">返回</el-button>
-            </div>
+            <h1 style="margin: 10px;text-align:center; color: white">The current warehouse：{{ warehouseForm.warehouseName }}</h1>
+<!--            <div>
+                <el-button style="margin-left:10px" type="success" @click="returnPage()">Back</el-button>
+            </div>-->
             <br>
             <div><!--按钮-->
-                <el-button style="margin-left:10px;margin-right:10px" type="success" @click="add()">新增</el-button>
+                <el-button style="margin-left:10px;margin-right:10px" type="success" @click="add()"><el-icon style="margin-right: 5px"><Plus /></el-icon>Add</el-button>
                 <!--输入框和输入按钮-->
-                <el-input v-model="searchText" placeholder="please input" style="width:30%"></el-input>
-                <el-button style="margin-left:10px" type="primary" @click="search()">搜索按钮</el-button>
+                <el-input v-model="searchText" placeholder="Please input..." style="width:30%"></el-input>
+                <el-button style="margin-left:10px" type="primary" @click="search()"><el-icon style="margin-right: 5px"><Search /></el-icon>Search</el-button>
             </div>
-            <br>
 
             <!--展示worker-->
             <!--el-table表格,prop属性，label列名, 在el-table设置height="250"即可固定表头 ！！！！！-->
-            <div style=" margin-bottom:10px;margin-top:5px;text-align: center">
-                <h3 style="color: white">工人信息</h3>
+            <div style=" margin-bottom:10px;margin-top:10px;text-align: center">
+                <h3 style="color: white">Worker Information</h3>
             </div>
-            <el-table :data="workersTableData" border stripe style="margin-left: 20px;
-        margin-right: 50px;
-        width: 95%">
-                <el-table-column label="工人id" prop="workerId" sortable/>
-                <el-table-column label="工人名字" prop="workerName"/>
-                <!--操作列-->
-                <el-table-column style="width:500px" fixed="right" label="Operations" width="120">
-                    <template #default="scope">
+            <el-scrollbar height="220px">
+                <el-table :data="workersTableData" border stripe style="margin-left: 20px;margin-right: 50px;width: 95%">
+                    <el-table-column label="Worker Id" prop="workerId" sortable/>
+                    <el-table-column label="Worker Name" prop="workerName"/>
+                    <!--操作列-->
+                    <el-table-column fixed="right" label="Operations" style="width:500px" width="120">
+                        <!--                    <template #default="scope">-->
                         <!--delete按钮-->
-                        <el-button style="margin-left:20px" type="success" @click="handleEdit">Edit</el-button>
+                        <el-button style="margin-left:20px" type="success" @click="handleEdit"><el-icon style="margin-right: 5px"><EditPen /></el-icon>Edit</el-button>
                         <!--edit按钮-->
-                        <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)">Delete</el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
+                        <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)"><el-icon style="margin-right: 5px"><Delete /></el-icon>Delete
+                        </el-button>
+                        <!--                    </template>-->
+                    </el-table-column>
+                </el-table>
 
-            <!--展示货物不需要操作列-->
-            <div style="margin-bottom:5px;margin-top:10px;text-align: center">
-                <h3 style="color: white">货物信息</h3>
+            </el-scrollbar>
+
+            <!-- 展示货物不需要操作列 -->
+            <div style="margin-bottom:20px;margin-top:10px;text-align: center">
+                <h3 style="color: white">Goods Information</h3>
             </div>
-            <el-table :data="goodsTableData" border stripe style="margin-top: 20px;margin-left: 20px;
-        margin-right: 50px;width: 95%">
-                <el-table-column label="goodsId" prop="goodsId" sortable/>
-                <el-table-column label="date" prop="date" sortable/>
-                <el-table-column label="goodsType" prop="goodsType"/>
-                <el-table-column label="warehouseWarehouseId" prop="warehouseWarehouseId"/>
-            </el-table>
+            <el-scrollbar height="350px">
+                <el-table :data="goodsTableData" border stripe style="margin-left: 20px;
+            margin-right: 50px;width: 95%">
+                    <el-table-column label="Goods Id" prop="goodsId" sortable/>
+                    <el-table-column label="Date" prop="date" sortable/>
+                    <el-table-column label="Goods Type" prop="goodsType"/>
+                    <el-table-column label="Warehouse Id" prop="warehouseId"/>
+                </el-table>
+            </el-scrollbar>
 
             <div><!--新增worker弹窗-->
-                <el-dialog v-model="dialogVisible" title="新增工人" width="50%">
+                <el-dialog v-model="dialogVisible" title="Add a worker" width="50%">
                     <el-form :model="form" label-width="120px">
                         <!--新增工人-->
-                        <el-form-item label="工人id">
+                        <el-form-item label="Worker Id">
                             <el-input v-model="form.workerId"/>
                         </el-form-item>
-                        <el-form-item label="工人名称">
+                        <el-form-item label="Worker Name">
                             <el-input v-model="form.workerName"/>
                         </el-form-item>
-                        <el-form-item label="工人所属仓库">
+                        <el-form-item label="Warehouse">
                             <el-input v-model="form.warehouseWarehouseId"/>
                         </el-form-item>
                     </el-form>
                     <template #footer>
                         <span class="dialog-footer">
-                            <el-button @click="dialogVisible = false">Cancel</el-button>
-                            <el-button type="primary" @click="save">Confirm</el-button>
+                            <el-button type="warning" @click="dialogVisible = false">Cancel</el-button>
+                            <el-button type="success" @click="save">Confirm</el-button>
                         </span>
                     </template>
                 </el-dialog>
@@ -187,12 +190,12 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
             /* TODO search查询，还没写完 */
             search() {
                 this.load()
-
+                console.log("search")
             },
 
             /* TODO handleEdit，还没写完 */
             handleEdit() {
-
+                console.log("handleEdit")
             },
 
             /* TODO handleDelete，还没写完 */

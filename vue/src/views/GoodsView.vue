@@ -1,30 +1,32 @@
 <!-- 展示所有商品的页面 可以编辑 可视化 -->
 <template>
-    <div>
+    <div style="margin: 10px">
         <div style="margin: 10px">
             <!--            <el-button style="margin: 10px" @click="add">Add</el-button>-->
-            <el-input v-model="searchText" placeholder="Please input" style="width: 50%"/>
-            <el-button style="margin-left: 10px" type="success" @click="search()">Search</el-button>
+            <el-input v-model="searchText" placeholder="Please input..." style="width: 50%"/>
+            <el-button style="margin-left: 10px" type="primary" @click="search()"><el-icon style="margin-right: 5px"><Search /></el-icon>Search</el-button>
         </div>
 
-        <el-table :data="goodsTableData" border stripe style="width: 100%">
-            <el-table-column label="Goods ID" prop="goodsId" sortable>
-            </el-table-column>
-            <el-table-column label="Date" prop="date" sortable>
-            </el-table-column>
-            <el-table-column label="Goods Type" prop="goodsType" sortable>
-            </el-table-column>
-            <el-table-column label="Warehouse Id" prop="warehouseId" sortable>
-            </el-table-column>
-            <el-table-column label="Goods Position" prop="goodsPosition" sortable></el-table-column>
-            <el-table-column fixed="right" label="Operation" width="150">
-                <template #default="scope">
-                    <el-button size="small" @click="checkPosition(scope.row)">
-                        Check Position
-                    </el-button>
-                </template>
-            </el-table-column>
-        </el-table>
+        <el-scrollbar height="700px">
+            <el-table :data="goodsTableData" border stripe style="width: 100%">
+                <el-table-column label="Goods ID" prop="goodsId" sortable>
+                </el-table-column>
+                <el-table-column label="Date" prop="date" sortable>
+                </el-table-column>
+                <el-table-column label="Goods Type" prop="goodsType" sortable>
+                </el-table-column>
+                <el-table-column label="Warehouse Id" prop="warehouseId" sortable>
+                </el-table-column>
+                <el-table-column label="Goods Position" prop="goodsPosition" sortable></el-table-column>
+                <el-table-column fixed="right" label="Operation" width="150">
+                    <template #default="scope">
+                        <el-button size="small" type="primary" @click="checkPosition(scope.row)">
+                            Check Position
+                        </el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </el-scrollbar>
 
         <div style="margin: 10px">
             <!-- 分页查询 -->
@@ -104,7 +106,7 @@
                 })
             },
             search() {
-                request.get("").then(res=>{
+                request.get("").then(res => {
                     console.log("res = " + res)
                 })
             },

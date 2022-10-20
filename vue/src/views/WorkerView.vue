@@ -1,25 +1,25 @@
 <template>
-    <div>
+    <div style="margin: 10px">
         <div style="margin: 10px">
-            <el-button style="margin: 10px" @click="add">Add</el-button>
-            <el-input v-model="search" placeholder="Please input" style="width: 50%"/>
-            <el-button style="margin-left: 10px">Search</el-button>
+            <el-button type="success" style="margin: 10px" @click="add"><el-icon style="margin-right: 5px"><Plus /></el-icon>Add</el-button>
+            <el-input v-model="search" placeholder="Please input..." style="width: 50%"/>
+            <el-button type="primary" style="margin-left: 10px"><el-icon style="margin-right: 5px"><Search /></el-icon>Search</el-button>
         </div>
 
         <el-table :data="workerTableData" border stripe style="width: 100%">
             <el-table-column label="Worker ID" prop="workerId" sortable>
             </el-table-column>
-            <el-table-column label="Worker Name" prop="workerName" style="width:50px">
+            <el-table-column label="Worker Name" prop="workerName" >
             </el-table-column>
             <el-table-column label="Warehouse" prop="warehouseId">
             </el-table-column>
             <el-table-column fixed="right" label="Operation" width="100">
                 <template #default="scope">
-                    <el-button size="small" style="margin-left: 15px" @click="handleEdit(scope.$index, scope.row)">
-                        Edit
+                    <el-button size="small" type="success" style="margin: 5px" @click="handleEdit(scope.$index, scope.row)">
+                        <el-icon style="margin-right: 5px"><EditPen /></el-icon>Edit
                     </el-button>
-                    <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">
-                        Delete
+                    <el-button size="small" type="danger" style="margin: 5px" @click="handleDelete(scope.$index, scope.row)">
+                        <el-icon style="margin-right: 5px"><Delete /></el-icon>Delete
                     </el-button>
                 </template>
             </el-table-column>
@@ -33,27 +33,27 @@
 
             <el-dialog v-model="dialogVisible" title="Add a Worker" width="30%">
                 <el-form :model="form" label-width="120px">
-                    <el-form-item label="id">
+                    <el-form-item label="Worker Id">
                         <el-input v-model="form.id"/>
                     </el-form-item>
                 </el-form>
 
                 <el-form :model="form" label-width="120px">
-                    <el-form-item label="name">
+                    <el-form-item label="Worker Name">
                         <el-input v-model="form.name"/>
                     </el-form-item>
                 </el-form>
 
                 <el-form :model="form" label-width="120px">
-                    <el-form-item label="warehouse">
+                    <el-form-item label="Warehouse">
                         <el-input v-model="form.warehouse"/>
                     </el-form-item>
                 </el-form>
 
                 <template #footer>
                     <span class="dialog-footer">
-                       <el-button @click="dialogVisible = false">Cancel</el-button>
-                       <el-button type="primary" @click="dialogVisible = save">Confirm</el-button>
+                       <el-button type="warning" @click="dialogVisible = false">Cancel</el-button>
+                       <el-button type="success" @click="dialogVisible = save">Confirm</el-button>
                     </span>
                 </template>
             </el-dialog>

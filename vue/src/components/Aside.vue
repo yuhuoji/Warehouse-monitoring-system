@@ -10,43 +10,41 @@
                          style="width: 200px"
                          @close="handleClose" @open="handleOpen">
                     <el-menu-item index="/home">
-                        <el-icon>
-                            <icon-menu/>
+                        <el-icon size="large">
+                            <House/>
                         </el-icon>
                         <span>Home</span>
                     </el-menu-item>
 
                     <el-menu-item index="/warehouse">
-                        <el-icon>
-                            <icon-menu/>
+                        <el-icon size="large">
+                            <OfficeBuilding/>
                         </el-icon>
                         <span>CheckWarehouse</span>
                     </el-menu-item>
 
                     <el-menu-item index="/worker">
-                        <el-icon>
-                            <icon-menu/>
+                        <el-icon size="large">
+                            <User/>
                         </el-icon>
                         <span>CheckWorker</span>
                     </el-menu-item>
 
                     <el-menu-item index="/goods">
-                        <el-icon>
-                            <icon-menu/>
+                        <el-icon size="large">
+                            <location/>
                         </el-icon>
                         <span>CheckGoods</span>
                     </el-menu-item>
 
                     <el-sub-menu index="1">
                         <template #title>
-                            <el-icon>
-                                <location/>
-                            </el-icon>
+                            <el-icon size="large"><Expand /></el-icon>
                             <span>Goods Display</span>
                         </template>
                         <el-menu-item-group title="AllGoods">
-                            <el-menu-item index="/display/goods/color">ByColor</el-menu-item>
-                            <el-menu-item index="/display/goods/time">ByTime</el-menu-item>
+                            <el-menu-item index="/display/goods/color"><el-icon ><PieChart /></el-icon>ByColor</el-menu-item>
+                            <el-menu-item index="/display/goods/time"><el-icon><TrendCharts /></el-icon>ByTime</el-menu-item>
                         </el-menu-item-group>
                         <el-menu-item-group title="Classification">
                             <el-sub-menu index="1-2">
@@ -94,9 +92,9 @@
 
 <style scoped>
 
-  /*  span {
-        margin-left: -40px
-    }*/
+    /*  span {
+          margin-left: -40px
+      }*/
 
 </style>
 
