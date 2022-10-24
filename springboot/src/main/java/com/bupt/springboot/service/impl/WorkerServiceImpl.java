@@ -13,45 +13,41 @@ import java.util.List;
 public class WorkerServiceImpl {
 
     @Autowired
-    /* Service层调用Mapper层 */
     private WorkerMapper workerMapper;
 
     @Autowired
     private WarehouseMapper warehouseMapper;
 
-
-    public List<Worker> selectAllWorkers(){
+    public List<Worker> selectAllWorkers() {
         return workerMapper.selectAllWorkers();
     }
 
-    /* TODO 需要输入的warehouseWarehouseId是否在warehouse表中存在 */
-    public int saveWorker(Worker worker){
-        /* 先进行判断 */
-        /* TODO 所有已存在的warehouseId,调用warehouse的mapper？？？ */
-        List<Integer> warehouseIdList = warehouseMapper.selectAllWarehouseId();
-        int id = worker.getWarehouseId();
-        System.out.println("worker.getWarehouseId()" + worker.getWarehouseId());
+    /* FIXME woker外键约束， id自增 */
+    public int saveWorker(Worker worker) {
         int insert = 1;
-        if(warehouseIdList.contains(id)) {
-            /* 查询外键约束存在，可以插入 */
-            Worker insertWorker = new Worker();
-            /* TODO id自增 */
-            insertWorker.setWorkerId(worker.getWorkerId());
-            insertWorker.setWorkerName(worker.getWorkerName());
-//            /* TODO 工人密码不应由管理员设置 */
-//            insertWorker.setPassword("1234");
-            insertWorker.setWarehouseId(worker.getWarehouseId());
-            System.out.println("insertWarehouse = " + insertWorker);
-            insert = workerMapper.insert(insertWorker);
-            System.out.println("insert = " + insert);
-        }else {
-            insert = 0;
+        /* worker_id is already in worker table */
+        List<Integer> workerIdList = workerMapper.selectAllWorkerId();
+        if (workerIdList.contains(worker.getWorkerId())){
+            return 0;
         }
+        /* warehouse_id is not in warehouse table */
+        List<Integer> warehouseIdList = warehouseMapper.selectAllWarehouseId();
+        if (!warehouseIdList.contains(worker.getWarehouseId())) {
+            return 0;
+        }
+        System.out.println("worker.getWarehouseId() = " + worker.getWarehouseId() + " is in warehouseIdList.");
+        Worker insertWorker = new Worker();
+        insertWorker.setWorkerId(worker.getWorkerId());
+        insertWorker.setWorkerName(worker.getWorkerName());
+        insertWorker.setWorkerPassword(worker.getWorkerPassword());
+        insertWorker.setWarehouseId(worker.getWarehouseId());
+        System.out.println("insertWorker = " + insertWorker);
+        insert = workerMapper.insert(insertWorker);
+        System.out.println("worker = " + worker.toString() + "insert = " + insert + ", insert success");
         return insert;
     }
 
-
-    public int deleteById(Integer id) {
+    public int updateWorkerById(Integer id) {
         int delete = workerMapper.deleteById(id);
         System.out.println("delete = " + delete);
         return delete;

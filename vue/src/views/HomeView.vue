@@ -1,15 +1,21 @@
 <!-- allow managers to create warehouses-->
 <template>
     <!--背景图片-->
-    <div :style="background1" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden" >
+    <div :style="background1" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden">
         <div class="home">
             <!-- 3 使用导入的组件实现布局 -->
             <div style="margin: 30px">
-                <el-button type="success" @click="add()"><el-icon style="margin-right: 5px" size="large"><Plus /></el-icon>Add</el-button>
+                <el-button type="success" @click="add()">
+                    <el-icon size="large" style="margin-right: 5px">
+                        <Plus/>
+                    </el-icon>
+                    Add
+                </el-button>
                 <!--输入框和输入按钮-->
                 <span style="margin: 10px 10px">
-                    <el-input v-model="searchText" placeholder="Please input..." style="width:40%" clearable></el-input>
-                    <el-button style="margin-left:10px" type="primary" @click="search()"><el-icon style="margin-right: 5px" size="large"><Search /></el-icon>Search</el-button>
+                    <el-input v-model="searchText" clearable placeholder="Please input..." style="width:40%"></el-input>
+                    <el-button style="margin-left:10px" type="primary" @click="search()"><el-icon
+                            size="large" style="margin-right: 5px"><Search/></el-icon>Search</el-button>
                 </span>
             </div>
 
@@ -23,7 +29,11 @@
                     <template #default="scope">
                         <!--每一行一个check按钮,跳转到第三页，展示具体一个仓库的信息，包括工人和货物-->
                         <!--当表格某一行被点击时会触发该事件，参数：row, column, event-->
-                        <el-button size="small" style="margin-left: 5px" type="primary" @click="check(scope.row)"><el-icon style="margin-right: 5px"><Check /></el-icon>Check
+                        <el-button size="small" style="margin-left: 5px" type="primary" @click="check(scope.row)">
+                            <el-icon style="margin-right: 5px">
+                                <Check/>
+                            </el-icon>
+                            Check
                         </el-button>
 
                     </template>
@@ -143,12 +153,12 @@
                 request.post("/warehouse/insert", this.form).then(res => {
                     console.log("res" + res + ". res.code = " + res.code + "res.msg" + res.msg)
                     if (res.code === "1") {
-                        this.$message({type: "success", message: "插入成功"})
                         /* 插入成功 */
+                        this.$message({type: "success", message: "Insertion success"})
                         this.load()
                     } else {
-                        this.$message({type: "error", message: res.msg})
                         /* 插入失败 */
+                        this.$message({type: "error", message: res.msg})
                     }
                 })
                 this.dialogVisible = false
@@ -184,15 +194,15 @@
             *   同级传参的两种方式 1.query穿参，或者params传参 */
             check(row) {
                 /* row-click 当前行*/
-                console.log("check")
+                console.log("check row.warehouseId = " + row.warehouseId + ", row.warehouseName = " + row.warehouseName)
                 /* 保存 */
                 this.$store.commit("saveWarehouseWarehouseId", row.warehouseId)
                 this.$store.commit("saveWarehouseWarehouseName", row.warehouseName)
+                sessionStorage.setItem('warehouse', JSON.stringify(row))
                 /* 进行页面跳转,再根据warehouseId进行页面渲染 */
                 this.$router.push("/warehouse")
 
             },
-
         }
     }
 </script>

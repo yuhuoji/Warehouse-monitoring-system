@@ -12,6 +12,8 @@ public interface WorkerMapper extends BaseMapper<Worker> {
 
     @Select("select * from worker")
     List<Worker> selectAllWorkers();
+    @Select("select worker_id from worker")
+    List<Integer> selectAllWorkerId();
 
     @Select("select * from worker where warehouse_id = #{id}")
     List<Worker> selectAllWorkersInWarehouse(int id);

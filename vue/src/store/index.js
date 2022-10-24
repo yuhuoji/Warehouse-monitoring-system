@@ -11,7 +11,7 @@ export default createStore({
     user:{
       userId:-1,
       userName:"admin",
-      userPassword:"123",
+      userPassword:"123456",
     },
     warehouse:{
       warehouseId:"1",
@@ -30,7 +30,7 @@ export default createStore({
     saveUserUserName(state, userName){
       state.user.username = userName
     },
-    saveUserPassword(state, password){
+    saveUserUserPassword(state, password){
       state.user.password = password
     },
     saveWarehouseWarehouseId(state, warehouseId){

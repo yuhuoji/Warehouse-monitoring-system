@@ -35,7 +35,6 @@ public class UserController {
         System.out.println("login(@RequestBody User user)");
 
         User userBean = new User();
-
         /* 用foreach 判断用户是否合法 */
         boolean userIsValid = false;
         List<User> list = userService.selectAllUser();
@@ -60,9 +59,6 @@ public class UserController {
 
     }
 
-    /*   *//* 请求方法为get,返回所有用户信息到前台 *//*
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }*/
+
+
 }

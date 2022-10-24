@@ -5,13 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /* 如果有多个mapper文件的话，@MapperScan指定要扫描的mapper位置*/
-@MapperScan("com.bupt.springboot.mapper")
-
 @SpringBootApplication
+@MapperScan("com.bupt.springboot.mapper")
 public class SpringbootApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApplication.class, args);
     }
-
 }

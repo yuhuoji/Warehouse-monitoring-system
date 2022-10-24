@@ -20,7 +20,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     public List<Goods> selectAllGoods() {
         List<Goods> goodsList = goodsMapper.selectAllGoods();
-        goodsList.forEach(System.out::println);
+//        goodsList.forEach(System.out::println);
         return goodsList;
     }
 
@@ -29,7 +29,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     public Map<String, Long> goodsStatisticsByType() {
         List<Goods> goodsList = goodsMapper.selectAllGoods();
-        System.out.println("goodsStatisticsByType goodsList = " + goodsList.toString());
+//        System.out.println("goodsStatisticsByType goodsList = " + goodsList.toString());
         Map<String, Long> goodsTypeMap = new HashMap<>();
         goodsTypeMap.put("red", goodsList.stream().filter(goods -> goods.getGoodsType().equals("red")).count());
         goodsTypeMap.put("blue", goodsList.stream().filter(goods -> goods.getGoodsType().equals("blue")).count());

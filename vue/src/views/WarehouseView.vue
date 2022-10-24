@@ -5,16 +5,27 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
     <div :style="background2" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden">
         <div class="warehouse">
             <!-- 3 使用导入的组件实现布局 -->
-            <h1 style="margin: 10px;text-align:center; color: white">The current warehouse：{{ warehouseForm.warehouseName }}</h1>
-<!--            <div>
-                <el-button style="margin-left:10px" type="success" @click="returnPage()">Back</el-button>
-            </div>-->
-            <br>
+            <h1 style="margin: 10px;text-align:center; color: white">The current
+                warehouse：{{ warehouseForm.warehouseName }}</h1>
+
             <div><!--按钮-->
-                <el-button style="margin-left:10px;margin-right:10px" type="success" @click="add()"><el-icon style="margin-right: 5px"><Plus /></el-icon>Add</el-button>
+                <!--
+                                <el-button style="margin-left:10px" type="success" @click="returnPage()">Back</el-button>
+                -->
+                <el-button style="margin-left:10px;margin-right:10px" type="success" @click="add()">
+                    <el-icon style="margin-right: 5px">
+                        <Plus/>
+                    </el-icon>
+                    Add
+                </el-button>
                 <!--输入框和输入按钮-->
                 <el-input v-model="searchText" placeholder="Please input..." style="width:30%"></el-input>
-                <el-button style="margin-left:10px" type="primary" @click="search()"><el-icon style="margin-right: 5px"><Search /></el-icon>Search</el-button>
+                <el-button style="margin-left:10px" type="primary" @click="search()">
+                    <el-icon style="margin-right: 5px">
+                        <Search/>
+                    </el-icon>
+                    Search
+                </el-button>
             </div>
 
             <!--展示worker-->
@@ -23,21 +34,35 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                 <h3 style="color: white">Worker Information</h3>
             </div>
             <el-scrollbar height="220px">
-                <el-table :data="workersTableData" border stripe style="margin-left: 20px;margin-right: 50px;width: 95%">
+                <el-table :data="workersTableData" border stripe
+                          style="margin-left: 20px;margin-right: 50px;width: 95%">
                     <el-table-column label="Worker Id" prop="workerId" sortable/>
                     <el-table-column label="Worker Name" prop="workerName"/>
-                    <!--操作列-->
-                    <el-table-column fixed="right" label="Operations" style="width:500px" width="120">
-                        <!--                    <template #default="scope">-->
-                        <!--delete按钮-->
-                        <el-button style="margin-left:20px" type="success" @click="handleEdit"><el-icon style="margin-right: 5px"><EditPen /></el-icon>Edit</el-button>
-                        <!--edit按钮-->
-                        <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)"><el-icon style="margin-right: 5px"><Delete /></el-icon>Delete
-                        </el-button>
-                        <!--                    </template>-->
-                    </el-table-column>
-                </el-table>
 
+                    <!--操作列-->
+                    <el-table-column key="slot" fixed="right" label="Operations" style="width:500px" width="120">
+                        <!-- TODO <template v-slot="scope"> key="slot"-->
+                        <template v-slot="scope">
+                            <!--delete按钮-->
+                            <el-button style="margin-left:20px" type="success" @click="handleEdit(scope.row)">
+                                <el-icon style="margin-right: 5px">
+                                    <EditPen/>
+                                </el-icon>
+                                Edit
+                            </el-button>
+
+                            <!--edit按钮-->
+                            <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)">
+                                <el-icon style="margin-right: 5px">
+                                    <Delete/>
+                                </el-icon>
+                                Delete
+                            </el-button>
+                        </template>
+                    </el-table-column>
+
+
+                </el-table>
             </el-scrollbar>
 
             <!-- 展示货物不需要操作列 -->
@@ -56,16 +81,16 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
 
             <div><!--新增worker弹窗-->
                 <el-dialog v-model="dialogVisible" title="Add a worker" width="50%">
-                    <el-form :model="form" label-width="120px">
+                    <el-form :model="addForm" label-width="120px">
                         <!--新增工人-->
                         <el-form-item label="Worker Id">
-                            <el-input v-model="form.workerId"/>
+                            <el-input v-model="addForm.workerId"/>
                         </el-form-item>
                         <el-form-item label="Worker Name">
-                            <el-input v-model="form.workerName"/>
+                            <el-input v-model="addForm.workerName"/>
                         </el-form-item>
                         <el-form-item label="Warehouse">
-                            <el-input v-model="form.warehouseWarehouseId"/>
+                            <el-input v-model="addForm.warehouseId" disabled/>
                         </el-form-item>
                     </el-form>
                     <template #footer>
@@ -75,8 +100,8 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                         </span>
                     </template>
                 </el-dialog>
-
             </div>
+
         </div>
     </div>
 </template>
@@ -100,10 +125,10 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                 },
 
                 /* 新增工人用 */
-                form: {
+                addForm: {
                     workerId: " ",
                     workerName: " ",
-                    warehouseWarehouseId: " ",
+                    warehouseId: " ",
                 },
                 /* 新增工人弹窗 */
                 dialogVisible: false,
@@ -152,16 +177,16 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
 
             /* 新增工人 */
             add() {
-                console.log("add工人")
+                console.log("add warehouse")
                 this.dialogVisible = true
-                this.form = {}
+                this.addForm = {}
             },
 
             /* TODO 保存新增工人 只需要传入workerId和workerName，warehouseWarehouseId是当前的数据库的id， 插入到worker表里 */
             save() {
-                console.log("新增工人save" + this.form.workerId)
-                // console.log("save工人 " + this.form.warehouseId)
-                request.post("/worker/insert", this.form).then(res => {
+                console.log("新增工人save" + this.addForm.workerId)
+                // console.log("save工人 " + this.addForm.warehouseId)
+                request.post("/worker/insert", this.addForm).then(res => {
                     console.log("res" + res + ". res.code = " + res.code + "res.msg" + res.msg)
                     if (res.code === "1") {
                         /* 插入成功 */
@@ -178,12 +203,13 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
             /* load重新加载页面 /detail */
             load() {
                 /* 根据this.presentWarehouseId查找当前仓库的所有内容 */
-                console.log("Warehouse页面loading 当前仓库信息 = " + this.warehouseForm.warehouseId + ", " + this.warehouseForm.warehouseName)
+                console.log("WarehouseView loading 当前仓库 warehouseId = " + this.warehouseForm.warehouseId + ", warehouseName = " + this.warehouseForm.warehouseName)
+                this.addForm.warehouseId = this.warehouseForm.warehouseId
+                console.log("this.addForm = " + this.addForm.warehouseId + ", " + this.addForm.workerId + ", " + this.addForm.workerName)
                 request.post("/warehouse/check", this.warehouseForm).then(res => {
                     // console.log("Warehouse页面res = " + res[0][0].goodsId)
                     this.workersTableData = res[1]
                     this.goodsTableData = res[0]
-                    // console.log("workersTableData = " + this.workersTableData + ", goodsTableData = " + this.goodsTableData)
                 })
             },
 
@@ -194,28 +220,32 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
             },
 
             /* TODO handleEdit，还没写完 */
-            handleEdit() {
-                console.log("handleEdit")
+            handleEdit(row) {
+                console.log("handleEdit= ")
             },
 
-            /* TODO handleDelete，还没写完 */
             handleDelete(row) {
-                console.log("handleDelete= " + row.workerId)
-
-                request.get("/worker/delete?id=" + row.workerId).then(res => {
-                    console.log("/worker/delete res = " + res)
+                console.log("handleDelete= row.workerId = " + row.workerId)
+                request.delete("/worker/" + row.workerId).then(res => {
+                    console.log("handleDelete /worker/ res = " + res.code)
                     if (res.code === "1") {
-                        this.$message({type: "success", message: "工人删除成功"})
+                        console.log("删除成功")
+                        this.$message({type: "success", message: "Delete success"})
                         /* 删除成功 */
                         this.load()
                     } else {
-                        this.$message({type: "error", message: res.msg})
+                        console.log("删除失败")
                         /* 删除失败 */
+                        this.$message({type: "error", message: res.data.msg})
                     }
-
+                    this.load()
                 })
 
             }
         }
     }
 </script>
+
+<style scoped>
+
+</style>

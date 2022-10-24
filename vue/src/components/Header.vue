@@ -5,7 +5,7 @@
         <!--        <el-icon style="text-align:center;">
                     <Monitor/>
                 </el-icon>-->
-        <h3 style="width: 200px;padding-left:30px;font-weight:bold;color:#ffffff"><el-icon style="margin: 0 10px 0 0" size="large"><Monitor /></el-icon>Administrator background page
+        <h3 style="width: 400px;padding-left:30px;font-weight:bold;color:#ffffff"><el-icon style="margin: 0 10px 0 0" size="large"><Monitor /></el-icon>Administrator background page
         </h3>
         <div style="flex: 1"></div>
         <span style="width: 100px;padding-top:20px;">
@@ -25,15 +25,15 @@
                     </el-dropdown-menu>
                 </template>
 
-
             </el-dropdown>
         </span>
+    </div>
 
         <!--弹窗-->
         <el-dialog v-model="dialogVisible" title="Administrator's personal information" width="50%">
 
             <!--TODO 修改个人信息-->
-            <el-form ref="userData" :model="userData">
+            <el-form ref="userData" :model="userData" label-width="120px">
                 <el-form-item label="User Id">
                     <el-input v-model="userData.userId" class="inputUserData" disabled></el-input>
                 </el-form-item>
@@ -53,8 +53,6 @@
             </template>
         </el-dialog>
 
-
-    </div>
 </template>
 
 <script>

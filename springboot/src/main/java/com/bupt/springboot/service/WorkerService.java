@@ -7,7 +7,7 @@ import java.util.List;
 public interface WorkerService {
      int saveWorker(Worker worker);
 
-     int deleteById(Integer id);
+     int updateWorkerById(Integer id);
 
      List<Worker> selectAllWorkers();
 }

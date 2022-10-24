@@ -93,11 +93,11 @@
                         /*           console.log("res = " + res + ", res.code = " + res.code + ", res.msg = " + res.msg + ", res.data.userId = "
                                        + res.data.userId + ", res.data.userName = " + res.data.userName + ", res.data.userPassword = "+ res.data.userPassword)*/
                         if (res.code === "1") {
-                            this.$message({type: "success", message: "登陆成功"})
+                            this.$message({type: "success", message: "Welcome !!!"})
                             /* 存储个人信息 */
                             this.$store.commit("saveUserUserId", res.data.userId)
                             this.$store.commit("saveUserUserName", res.data.userName)
-                            this.$store.commit("saveUserPassword", res.data.userPassword)
+                            this.$store.commit("saveUserUserPassword", res.data.userPassword)
                             console.log("store : userId = " + this.$store.state.user.userId + ", userName = " + this.$store.state.user.userName +
                                 ", userPassword = " + this.$store.state.user.userPassword)
                             /* 存在浏览器会话存储里sessionStorage里 */
@@ -114,7 +114,6 @@
                     console.log("禁止使用空密码或空账户")
                     this.submitVisible = true
                 }
-
             },
         }
     }

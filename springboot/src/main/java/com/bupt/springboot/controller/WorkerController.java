@@ -13,15 +13,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/worker")
 public class WorkerController {
-
     /* TODO
      * Field injection is not recommended
      * Could not autowire. No beans of 'WorkerService' type found. */
-    @Autowired
-    private WorkerServiceImpl workerServiceImpl;
-
     @Autowired(required = false)
     private WorkerService workerService;
+
+    @Autowired
+    private WorkerServiceImpl workerServiceImpl;
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     public Result<?> selectAllWorkers() {
@@ -36,26 +35,26 @@ public class WorkerController {
 
     /*插入工人*/
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public Result<?> saveWarehouse(@RequestBody Worker worker) {
-        System.out.println("save worker_id = " + worker.getWorkerId() + ", worker_name = " + worker.getWorkerName() + ", warehouse_id" + worker.getWarehouseId());
-        System.out.println("workerService = " + workerServiceImpl);
+    public Result<?> saveWorker(@RequestBody Worker worker) {
+        System.out.println("save worker_id = " + worker.getWorkerId() + ", worker_name = " + worker.getWorkerName() + ", warehouse_id = " + worker.getWarehouseId() + ", worker_password = " + worker.getWorkerPassword());
+        System.out.println("workerService = " + workerService + ", workerServiceImpl = " + workerServiceImpl);
         int insert = workerServiceImpl.saveWorker(worker);
         if (insert == 1) {
-            return Result.success();
+            return Result.success(worker);
         } else {
-            return Result.error("0", "Warehouse Invalid.");
+            return Result.error("0", "Worker saved invalid");
         }
     }
 
     /* 删除工人 */
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public Result<?> deleteById(@RequestParam Integer id) {
-        System.out.println("deleteById = " + id);
-        int delete = workerServiceImpl.deleteById(id);
-        if (delete == 1)
+    @DeleteMapping("/{id}")
+    public Result<?> updateWorkerById(@PathVariable Integer id) {
+        System.out.println("@DeleteMapping deleteById, id= " + id + ",");
+        int delete = workerServiceImpl.updateWorkerById(id);
+        System.out.println("updateWorkerById delete = " + delete);
+        if (delete != 0)
             return Result.success();
         else
-            return Result.error(String.valueOf(delete), "Worker deleteError");
+            return Result.error("0", "Worker delete Error");
     }
-
 }
