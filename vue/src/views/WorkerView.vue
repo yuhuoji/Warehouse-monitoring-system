@@ -54,13 +54,13 @@
             <el-dialog v-model="dialogVisible" title="Add a Worker" width="30%">
                 <el-form :model="addForm" label-width="120px">
                     <el-form-item label="Worker Id">
-                        <el-input v-model="addForm.workerId"/>
+                        <el-input v-model="addForm.workerId" maxlength=10 show-word-limit/>
                     </el-form-item>
                     <el-form-item label="Worker Name">
-                        <el-input v-model="addForm.workerName"/>
+                        <el-input v-model="addForm.workerName" maxlength=10 show-word-limit/>
                     </el-form-item>
                     <el-form-item label="Warehouse">
-                        <el-input v-model="addForm.warehouseId"/>
+                        <el-input v-model="addForm.warehouseId" maxlength=10 show-word-limit/>
                     </el-form-item>
                 </el-form>
 

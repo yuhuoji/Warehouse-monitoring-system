@@ -64,10 +64,10 @@
                         <el-form :model="form" label-width="120px">
                             <!--新增 创建仓库-->
                             <el-form-item label="Warehouse Id">
-                                <el-input v-model="form.warehouseId"/>
+                                <el-input v-model="form.warehouseId" maxlength=10 show-word-limit/>
                             </el-form-item>
                             <el-form-item label="Name">
-                                <el-input v-model="form.warehouseName"/>
+                                <el-input v-model="form.warehouseName" maxlength=10 show-word-limit/>
                             </el-form-item>
                         </el-form>
 

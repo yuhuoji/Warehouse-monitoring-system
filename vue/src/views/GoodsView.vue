@@ -1,6 +1,6 @@
 <!-- 展示所有商品的页面 可以编辑 可视化 -->
 <template>
-    <div style="margin: 10px">
+    <div id="main" style="margin: 10px">
         <div style="margin: 10px">
             <!--            <el-button style="margin: 10px" @click="add">Add</el-button>-->
             <el-input v-model="searchText" placeholder="Please input..." style="width: 50%"/>
@@ -13,7 +13,7 @@
         </div>
 
         <el-scrollbar height="700px">
-            <el-table :data="goodsTableData" border stripe style="width: 100%">
+            <el-table :data="goodsTableData" border height="700" stripe style="width: 100%">
                 <el-table-column label="Goods ID" prop="goodsId" sortable>
                 </el-table-column>
                 <el-table-column label="Date" prop="date" sortable>
@@ -49,30 +49,13 @@
             />
 
             <el-dialog v-model="dialogVisible" title="Check Position" width="30%">
-                <!--                <el-form :model="form" label-width="120px">
-                                    <el-form-item label="id">
-                                        <el-input v-model="form.id"/>
-                                    </el-form-item>
-                                </el-form>
-
-                                <el-form :model="form" label-width="120px">
-                                    <el-form-item label="name">
-                                        <el-input v-model="form.name"/>
-                                    </el-form-item>
-                                </el-form>
-
-                                <el-form :model="form" label-width="120px">
-                                    <el-form-item label="warehouse">
-                                        <el-input v-model="form.warehouse"/>
-                                    </el-form-item>
-                                </el-form>-->
-                <!--                <div :style="'background-image:url('+require('../assets/visualization.png')+')'"></div>-->
+                The warehouse number : {{ currentWarehouseId }}
                 <div class="box">
                     <div class="railImgUrl_box">
-                        <img :src="railImgUrl" alt="railImgUrl" class="rail_img">
+                        <img :src="railImgUrl" alt="defaultRailImg" class="rail_img">
                     </div>
-                    <div class="goodsImgUrl_box">
-                        <img :src="goodsImgUrl" alt="goodsImgUrl" class="goods_img">
+                    <div id="goodsImg" class="goodsImgUrl_box">
+                        <img :src="goodsImgUrl" alt="defaultGoodsImg" class="goods_img">
                     </div>
                 </div>
 
@@ -103,12 +86,24 @@
                 dialogVisible: false,
                 railImgUrl: require('../assets/visualization.png'),
                 goodsImgUrl: {},
+                currentWarehouseId: {},
+                obj: {},
             }
         },
         created() {
             console.log("GoodsView created")
             this.load()
+            console.log("mounted obj = " + this.$refs.goodsImgUrlRef)
         },
+        mounted() {
+            console.log("GoodsView mounted")
+            // this.obj = this.$el.querySelector('#goodsImg')
+            // this.obj = document.getElementById("main");
+            // console.log("mounted obj = " + this.obj)
+            console.log("mounted obj = " + document.getElementById("goodsImg"))
+
+        },
+
         methods: {
             load() {
                 console.log("GoodsView load")
@@ -118,21 +113,25 @@
                 })
             },
             search() {
-                request.get("").then(res => {
-                    console.log("res = " + res)
-                })
+                console.log("search")
+
             },
             checkPosition(row) {
-                // alert(JSON.stringify(row))
-                console.log("goods position, warehouseId = " + row.warehouseId + ", goodsPosition" + row.goodsPosition)
-                /* switch (row.goodsPosition){
-                     case 1:
-                         console.log("position 1")
-                 }*/
-                let redGoodsImgUrl = require('../assets/red.png')
-                this.goodsImgUrl = redGoodsImgUrl
-
                 this.dialogVisible = true
+                // alert(JSON.stringify(row))
+                console.log("goods position, warehouseId = " + row.warehouseId + ", goodsPosition = " + row.goodsPosition + ", goodsType = " + row.goodsType)
+                this.currentWarehouseId = row.warehouseId
+
+                this.goodsImgUrl = require('../assets/' + row.goodsType + '.png')
+
+                this.obj = document.getElementById("goodsImg");
+                console.log("checkPosition obj = " + this.obj)
+                console.log("checkPosition obj goodsImg = " + document.getElementById("goodsImg"))
+                console.log("checkPosition obj main = " + document.getElementById("main"))
+                // console.log("this.obj = " + this.obj)
+                this.obj.setAttribute("class", "style" + row.goodsPosition);
+                // document.getElementById("goodsImg").style.cssText += "position: relative;top: 170px; left: -250px;"
+
             },
             handleSizeChange() {
 
@@ -159,7 +158,8 @@
     .railImgUrl_box {
         /*position: absolute;*/
     }
-    .rail_img{
+
+    .rail_img {
         width: auto;
         height: auto;
         max-width: 100%;
@@ -168,18 +168,49 @@
 
     .goodsImgUrl_box {
         position: relative;
-        top: 40px;
-        left: -50px;
+        top: -160px;
+        left: -250px;
     }
-/*
-top: 40px;
-        left: -50px;
-        
-*/
-    .goods_img{
+
+    .goods_img {
         width: 50px;
         height: 50px;
     }
 
+    .style1 {
+        position: relative;
+        top: 170px;
+        left: -250px;
+    }
+
+    .style2 {
+        position: relative;
+        top: 170px;
+        left: -170px;
+    }
+
+    .style3 {
+        position: relative;
+        top: 40px;
+        left: -40px;
+    }
+
+    .style4 {
+        position: relative;
+        top: -40px;
+        left: -40px;
+    }
+
+    .style5 {
+        position: relative;
+        top: -160px;
+        left: -170px;
+    }
+
+    .style6 {
+        position: relative;
+        top: -160px;
+        left: -250px;
+    }
 
 </style>

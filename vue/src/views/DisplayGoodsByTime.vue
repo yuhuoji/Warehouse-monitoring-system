@@ -162,7 +162,6 @@ time-stacked line
             },
         },
 
-
     }
 
 </script>

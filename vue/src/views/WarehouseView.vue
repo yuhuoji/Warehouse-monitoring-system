@@ -3,12 +3,12 @@ add/delete workers from the system;
 display the good status (e.g. positions of goods) and information (e.g. the kind of goods) for each of the warehouses;-->
 <template>
     <div :style="background2" class="bgBackground" style=" height: 100vh; width: 100%; overflow: hidden">
-        <div class="warehouse">
+        <div class="warehouse_box">
             <!-- 3 使用导入的组件实现布局 -->
             <h1 style="margin: 10px;text-align:center; color: white">The current
                 warehouse：{{ warehouseForm.warehouseName }}</h1>
 
-            <div><!--按钮-->
+            <div style="margin-bottom: 20px"><!--按钮-->
                 <!--
                                 <el-button style="margin-left:10px" type="success" @click="returnPage()">Back</el-button>
                 -->
@@ -28,69 +28,75 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                 </el-button>
             </div>
 
-            <!--展示worker-->
-            <!--el-table表格,prop属性，label列名, 在el-table设置height="250"即可固定表头 ！！！！！-->
-            <div style=" margin-bottom:10px;margin-top:10px;text-align: center">
-                <h3 style="color: white">Worker Information</h3>
+            <div class="table_box" style="margin-left: 20px">
+                <div class="worker_table_box" style="float: left; width: 50%;">
+                    <!--展示worker-->
+                    <!--el-table表格,prop属性，label列名, 在el-table设置height="250"即可固定表头 ！！！！！-->
+                    <div style="text-align: center">
+                        <h3 style="color: white">Worker Information</h3>
+                    </div>
+<!--                    <el-scrollbar height="220px">-->
+                        <el-table :data="workersTableData" border max-height="600"
+                                  stripe style="width: 95%">
+                            <el-table-column label="Worker Id" prop="workerId" sortable/>
+                            <el-table-column label="Worker Name" prop="workerName"/>
+
+                            <!--操作列-->
+                            <el-table-column key="slot" fixed="right" label="Operations" style="width:500px"
+                                             width="120">
+                                <!-- TODO <template v-slot="scope"> key="slot"-->
+                                <template v-slot="scope">
+                                    <!--delete按钮-->
+                                    <el-button style="margin-left:20px" type="success" @click="handleEdit(scope.row)">
+                                        <el-icon style="margin-right: 5px">
+                                            <EditPen/>
+                                        </el-icon>
+                                        Edit
+                                    </el-button>
+
+                                    <!--edit按钮-->
+                                    <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)">
+                                        <el-icon style="margin-right: 5px">
+                                            <Delete/>
+                                        </el-icon>
+                                        Delete
+                                    </el-button>
+                                </template>
+                            </el-table-column>
+
+                        </el-table>
+<!--                    </el-scrollbar>-->
+                </div>
+
+
+                <div class="goods_table_box" style="float: left; width: 50%;">
+                    <!-- 展示货物不需要操作列 -->
+                    <div style="text-align: center">
+                        <h3 style="color: white">Goods Information</h3>
+                    </div>
+                    <el-scrollbar ref="scrollbarRef" height="700px" always @scroll="scroll">
+                        <el-table :data="goodsTableData" border max-height="600" stripe style="width: 95%">
+                            <el-table-column label="Goods Id" prop="goodsId" sortable/>
+                            <el-table-column label="Date" prop="date" sortable/>
+                            <el-table-column label="Goods Type" prop="goodsType"/>
+                            <el-table-column label="Warehouse Id" prop="warehouseId"/>
+                        </el-table>
+                    </el-scrollbar>
+                </div>
+
             </div>
-            <el-scrollbar height="220px">
-                <el-table :data="workersTableData" border stripe
-                          style="margin-left: 20px;margin-right: 50px;width: 95%">
-                    <el-table-column label="Worker Id" prop="workerId" sortable/>
-                    <el-table-column label="Worker Name" prop="workerName"/>
-
-                    <!--操作列-->
-                    <el-table-column key="slot" fixed="right" label="Operations" style="width:500px" width="120">
-                        <!-- TODO <template v-slot="scope"> key="slot"-->
-                        <template v-slot="scope">
-                            <!--delete按钮-->
-                            <el-button style="margin-left:20px" type="success" @click="handleEdit(scope.row)">
-                                <el-icon style="margin-right: 5px">
-                                    <EditPen/>
-                                </el-icon>
-                                Edit
-                            </el-button>
-
-                            <!--edit按钮-->
-                            <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)">
-                                <el-icon style="margin-right: 5px">
-                                    <Delete/>
-                                </el-icon>
-                                Delete
-                            </el-button>
-                        </template>
-                    </el-table-column>
-
-
-                </el-table>
-            </el-scrollbar>
-
-            <!-- 展示货物不需要操作列 -->
-            <div style="margin-bottom:20px;margin-top:10px;text-align: center">
-                <h3 style="color: white">Goods Information</h3>
-            </div>
-            <el-scrollbar height="350px">
-                <el-table :data="goodsTableData" border stripe style="margin-left: 20px;
-            margin-right: 50px;width: 95%">
-                    <el-table-column label="Goods Id" prop="goodsId" sortable/>
-                    <el-table-column label="Date" prop="date" sortable/>
-                    <el-table-column label="Goods Type" prop="goodsType"/>
-                    <el-table-column label="Warehouse Id" prop="warehouseId"/>
-                </el-table>
-            </el-scrollbar>
-
             <div><!--新增worker弹窗-->
                 <el-dialog v-model="dialogVisible" title="Add a worker" width="50%">
                     <el-form :model="addForm" label-width="120px">
                         <!--新增工人-->
                         <el-form-item label="Worker Id">
-                            <el-input v-model="addForm.workerId"/>
+                            <el-input v-model="addForm.workerId" maxlength=10 show-word-limit/>
                         </el-form-item>
                         <el-form-item label="Worker Name">
-                            <el-input v-model="addForm.workerName"/>
+                            <el-input v-model="addForm.workerName" maxlength=10 show-word-limit/>
                         </el-form-item>
                         <el-form-item label="Warehouse">
-                            <el-input v-model="addForm.warehouseId" disabled/>
+                            <el-input v-model="warehouseForm.warehouseId" disabled/>
                         </el-form-item>
                     </el-form>
                     <template #footer>

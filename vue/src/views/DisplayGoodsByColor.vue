@@ -4,11 +4,24 @@ red blue yellow green
  -->
 <template>
     <div>
+        <el-button type="success" @click="setPie()">
+            <el-icon size="large" style="margin-right: 10px">
+                <PieChart/>
+            </el-icon>
+            SetPie
+        </el-button>
+        <el-button type="success" @click="setValue()">
+            <el-icon size="large" style="margin-right: 10px">
+                <Histogram/>
+            </el-icon>
+            SetValue
+        </el-button>
+
         <div class="title" style="margin: 10px 0 0 0 ;text-align:center;">
             <h1>Goods Color Pie Chart</h1>
         </div>
 
-        <div id="myChart" ref="myChart" :style="{width: '100%', height:'100vh',display:'flex'}"></div>
+        <div id="myChart" ref="myChart" :style="{width: '90%', height:'90vh',display:'flex'}"></div>
 
     </div>
 </template>
@@ -28,6 +41,9 @@ red blue yellow green
                     // {value: 580, name: 'YELLOW'},
                     // {value: 484, name: 'GREEN'},
                 ],
+                pieOption: {},
+                valueOption: {},
+                chartOption:{}, //default
             }
         },
         created() {
@@ -38,11 +54,11 @@ red blue yellow green
         },
         /* TODO ??? */
         mounted() {
-            console.log("DisplayGoodsByColor created")
+            console.log("DisplayGoodsByColor mounted")
+            /* FIXME vue各组件生命周期 */
+            this.chartOption = this.pieOption
+            // console.log("this.chartOption = "  + this.chartOption + ", this.pieOption = " + this.pieOption)
             this.load()
-            // this.initPage()
-            this.myChart = this.$refs.myChart
-            window.addEventListener('resize', this.resizeCharts)
         },
         beforeDestroy() { // 清理工作 避免内存泄漏
             // 销毁监听事件
@@ -55,8 +71,6 @@ red blue yellow green
             load() {
                 request.get("/goods/goodsStatisticsByType").then(res => {
                     console.log("/goods/goodsStatisticsByColor res.data = " + res.data + ", res.code = " + res.code + ", res.msg = " + res.msg)
-                    /* FIXME 传数据 */
-
                     /* let jsonObj = JSON.parse(JSON.stringify(res.data))
                      this.goodsColorData = jsonObj*/
 
@@ -75,13 +89,15 @@ red blue yellow green
                     }
 
                 })
+                this.myChart = this.$refs.myChart
+                window.addEventListener('resize', this.resizeCharts)
             },
 
             /* Page initialization */
             initPage() {
                 this.myChart = echarts.init(document.getElementById('myChart')); //初始化
 
-                let option = {
+                this.pieOption = {
                     tooltip: {
                         trigger: 'item'
                     },
@@ -107,15 +123,15 @@ red blue yellow green
                                             '#5470c6',
                                             '#fac858',
 
-                                    /*        '#5470c6',
-                                            '#91cc75',
-                                            '#fac858',
-                                            '#ee6666',
-                                            '#73c0de',
-                                            '#3ba272',
-                                            '#fc8452',
-                                            '#9a60b4',
-                                            '#ea7ccc',*/
+                                            /*        '#5470c6',
+                                                    '#91cc75',
+                                                    '#fac858',
+                                                    '#ee6666',
+                                                    '#73c0de',
+                                                    '#3ba272',
+                                                    '#fc8452',
+                                                    '#9a60b4',
+                                                    '#ea7ccc',*/
 
                                         ];
                                         return colorList[colors.dataIndex];
@@ -140,13 +156,48 @@ red blue yellow green
                         }
                     ]
                 }
-                this.myChart.setOption(option)
+                /*        this.valueOption = {
+                            xAxis: {
+                                type: 'type',
+                                data: ['Red', 'Yellow', 'Blue', 'Green']
+                            },
+                            yAxis: {
+                                type: 'number'
+                            },
+                            series: [
+                                {
+                                    data: [120, 200, 150, 80],
+                                    type: 'bar',
+                                    showBackground: true,
+                                    backgroundStyle: {
+                                        color: 'rgba(180, 180, 180, 0.2)'
+                                    }
+                                }
+                            ]
+                        }*/
+
+                this.chartOption = this.pieOption
+                this.myChart.setOption(this.chartOption)
             },
 
             /* 监听图表容器的大小并改变图表大小 */
             resizeCharts() {
                 this.myChart.resize();
-            }
+            },
+
+            setPie() {
+                console.log("setPie")
+                this.chartOption = this.pieOption
+                this.goodsColorData = []
+                this.load()
+            },
+
+            setValue() {
+                console.log("setValue")
+                this.chartOption = this.valueOption
+                this.goodsColorData = []
+                this.load()
+            },
         },
 
     }

@@ -5,9 +5,18 @@
         <!--        <el-icon style="text-align:center;">
                     <Monitor/>
                 </el-icon>-->
-        <h3 style="width: 400px;padding-left:30px;font-weight:bold;color:#ffffff"><el-icon style="margin: 0 10px 0 0" size="large"><Monitor /></el-icon>Administrator background page
+        <h3 style="width: 400px;padding-left:30px;font-weight:bold;color:#ffffff">
+            <el-icon size="large" style="margin: 0 10px 0 0">
+                <Monitor/>
+            </el-icon>
+            Administrator background page
         </h3>
-        <div style="flex: 1"></div>
+
+        <div style="flex: 1">
+            <img :src="logoUrl" alt="default"
+                                  style=" width: auto;height: auto;max-width: 100%;max-height: 100%;">
+        </div>
+
         <span style="width: 100px;padding-top:20px;">
 
             <!--下拉框，引用element的额dropdown-->
@@ -20,8 +29,8 @@
 
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item @click="personalInfo()"><el-icon><UserFilled /></el-icon>Personal information</el-dropdown-item>
-                        <el-dropdown-item @click="logOut()"><el-icon><SwitchButton /></el-icon>Log out</el-dropdown-item>
+                        <el-dropdown-item @click="personalInfo()"><el-icon><UserFilled/></el-icon>Personal information</el-dropdown-item>
+                        <el-dropdown-item @click="logOut()"><el-icon><SwitchButton/></el-icon>Log out</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
 
@@ -29,29 +38,29 @@
         </span>
     </div>
 
-        <!--弹窗-->
-        <el-dialog v-model="dialogVisible" title="Administrator's personal information" width="50%">
+    <!--弹窗-->
+    <el-dialog v-model="dialogVisible" title="Administrator's personal information" width="50%">
 
-            <!--TODO 修改个人信息-->
-            <el-form ref="userData" :model="userData" label-width="120px">
-                <el-form-item label="User Id">
-                    <el-input v-model="userData.userId" class="inputUserData" disabled></el-input>
-                </el-form-item>
-                <el-form-item label="User Name">
-                    <el-input v-model="userData.username" class="inputUserData" maxlength=10 minlength=6></el-input>
-                </el-form-item>
-                <el-form-item label="Password">
-                    <el-input v-model="userData.password" class="inputUserData" maxlength=10 minlength=6></el-input>
-                </el-form-item>
-            </el-form>
+        <!--TODO 修改个人信息-->
+        <el-form ref="userData" :model="userData" label-width="120px">
+            <el-form-item label="User Id">
+                <el-input v-model="userData.userId" class="inputUserData" disabled></el-input>
+            </el-form-item>
+            <el-form-item label="User Name">
+                <el-input v-model="userData.username" class="inputUserData" maxlength=10 minlength=6 show-word-limit></el-input>
+            </el-form-item>
+            <el-form-item label="Password">
+                <el-input v-model="userData.password" class="inputUserData"  minlength=6 maxlength=10 show-word-limit></el-input>
+            </el-form-item>
+        </el-form>
 
-            <template #footer>
+        <template #footer>
                         <span class="dialog-footer">
-                            <el-button @click="saveInfo" type="success">SaveInfo</el-button>
-                            <el-button @click="dialogVisible = false" >Leave</el-button>
+                            <el-button type="success" @click="saveInfo">SaveInfo</el-button>
+                            <el-button @click="dialogVisible = false">Leave</el-button>
                         </span>
-            </template>
-        </el-dialog>
+        </template>
+    </el-dialog>
 
 </template>
 
@@ -75,7 +84,8 @@
                     userId: '111',
                     username: this.$store.state.user.username,
                     password: this.$store.state.user.password,
-                }]
+                }],
+                logoUrl: require("../assets/logo.jpg"),
             }
         },
         components: {},
