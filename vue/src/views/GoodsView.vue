@@ -114,7 +114,7 @@
             },
             search() {
                 console.log("search")
-
+                this.load()
             },
             checkPosition(row) {
                 this.dialogVisible = true

@@ -8,14 +8,10 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
             <h1 style="margin: 10px;text-align:center; color: white">The current
                 warehouse：{{ warehouseForm.warehouseName }}</h1>
 
-            <div style="margin-bottom: 20px"><!--按钮-->
-                <!--
-                                <el-button style="margin-left:10px" type="success" @click="returnPage()">Back</el-button>
-                -->
-                <el-button style="margin-left:10px;margin-right:10px" type="success" @click="add()">
-                    <el-icon style="margin-right: 5px">
-                        <Plus/>
-                    </el-icon>
+            <div style="margin: 10px 20px"><!--按钮-->
+                <!-- <el-button style="margin-left:10px" type="success" @click="returnPage()">Back</el-button> -->
+                <el-button type="success" @click="add()">
+                    <el-icon style="margin-right: 5px"><Plus/></el-icon>
                     Add
                 </el-button>
                 <!--输入框和输入按钮-->
@@ -35,37 +31,35 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                     <div style="text-align: center">
                         <h3 style="color: white">Worker Information</h3>
                     </div>
-<!--                    <el-scrollbar height="220px">-->
-                        <el-table :data="workersTableData" border max-height="600"
-                                  stripe style="width: 95%">
-                            <el-table-column label="Worker Id" prop="workerId" sortable/>
-                            <el-table-column label="Worker Name" prop="workerName"/>
+                    <el-table :data="workersTableData" border max-height="600"
+                              stripe style="width: 95%">
+                        <el-table-column label="Worker Id" prop="workerId" sortable/>
+                        <el-table-column label="Worker Name" prop="workerName"/>
 
-                            <!--操作列-->
-                            <el-table-column key="slot" fixed="right" label="Operations" style="width:500px"
-                                             width="120">
-                                <!-- TODO <template v-slot="scope"> key="slot"-->
-                                <template v-slot="scope">
-                                    <!--delete按钮-->
-                                    <el-button style="margin-left:20px" type="success" @click="handleEdit(scope.row)">
-                                        <el-icon style="margin-right: 5px">
-                                            <EditPen/>
-                                        </el-icon>
-                                        Edit
-                                    </el-button>
+                        <!--操作列-->
+                        <el-table-column key="slot" fixed="right" label="Operations" style="width:500px"
+                                         width="120">
+                            <!-- TODO <template v-slot="scope"> key="slot"-->
+                            <template v-slot="scope">
+                                <!--delete按钮-->
+                                <el-button style="margin-left:20px" type="success" @click="handleEdit(scope.row)">
+                                    <el-icon style="margin-right: 5px">
+                                        <EditPen/>
+                                    </el-icon>
+                                    Edit
+                                </el-button>
 
-                                    <!--edit按钮-->
-                                    <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)">
-                                        <el-icon style="margin-right: 5px">
-                                            <Delete/>
-                                        </el-icon>
-                                        Delete
-                                    </el-button>
-                                </template>
-                            </el-table-column>
+                                <!--edit按钮-->
+                                <el-button style="margin-top:5px" type="danger" @click="handleDelete(scope.row)">
+                                    <el-icon style="margin-right: 5px">
+                                        <Delete/>
+                                    </el-icon>
+                                    Delete
+                                </el-button>
+                            </template>
+                        </el-table-column>
 
-                        </el-table>
-<!--                    </el-scrollbar>-->
+                    </el-table>
                 </div>
 
 
@@ -74,7 +68,7 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                     <div style="text-align: center">
                         <h3 style="color: white">Goods Information</h3>
                     </div>
-                    <el-scrollbar ref="scrollbarRef" height="700px" always @scroll="scroll">
+                    <el-scrollbar ref="scrollbarRef" always height="700px" @scroll="scroll">
                         <el-table :data="goodsTableData" border max-height="600" stripe style="width: 95%">
                             <el-table-column label="Goods Id" prop="goodsId" sortable/>
                             <el-table-column label="Date" prop="date" sortable/>
@@ -131,11 +125,7 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                 },
 
                 /* 新增工人用 */
-                addForm: {
-                    workerId: " ",
-                    workerName: " ",
-                    warehouseId: " ",
-                },
+                addForm: {},
                 /* 新增工人弹窗 */
                 dialogVisible: false,
                 /* 搜索框 */
@@ -190,13 +180,14 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
 
             /* TODO 保存新增工人 只需要传入workerId和workerName，warehouseWarehouseId是当前的数据库的id， 插入到worker表里 */
             save() {
-                console.log("新增工人save" + this.addForm.workerId)
-                // console.log("save工人 " + this.addForm.warehouseId)
+                this.addForm.workerPassword = 123456;
+                this.addForm.warehouseId = this.warehouseForm.warehouseId
+                console.log("新增工人save" + this.addForm)
                 request.post("/worker/insert", this.addForm).then(res => {
-                    console.log("res" + res + ". res.code = " + res.code + "res.msg" + res.msg)
+                    console.log("res = " + res + ", res.code = " + res.code + ", res.msg = " + res.msg)
                     if (res.code === "1") {
                         /* 插入成功 */
-                        this.$message({type: "success", message: "插入成功"})
+                        this.$message({type: "success", message: "Insert successfully"})
                     } else {
                         /* 插入失败 */
                         this.$message({type: "error", message: res.msg})
@@ -236,7 +227,7 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
                     console.log("handleDelete /worker/ res = " + res.code)
                     if (res.code === "1") {
                         console.log("删除成功")
-                        this.$message({type: "success", message: "Delete success"})
+                        this.$message({type: "success", message: "Delete successfully"})
                         /* 删除成功 */
                         this.load()
                     } else {

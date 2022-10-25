@@ -154,11 +154,11 @@
                     console.log("res" + res + ". res.code = " + res.code + "res.msg" + res.msg)
                     if (res.code === "1") {
                         /* 插入成功 */
-                        this.$message({type: "success", message: "Insertion success"})
+                        this.$message({type: "success", message: "Insert successfully"})
                         this.load()
                     } else {
                         /* 插入失败 */
-                        this.$message({type: "error", message: res.msg})
+                        this.$message({type: "error", message: "Insert invalid"})
                     }
                 })
                 this.dialogVisible = false
@@ -187,7 +187,7 @@
             /* TODO search查询 */
             search() {
                 this.load()
-                alert("我还没做呢")
+                console.log("我还没做呢")
             },
 
             /* TODO 查看仓库， 第三页。 获取当前行的warehouse_id,跳转并传参，到worker和goods里查询返回数据并在/warehouse页面渲染
