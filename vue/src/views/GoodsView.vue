@@ -113,7 +113,8 @@
                 })
             },
             search() {
-                console.log("search")
+                console.log("searchText = " + this.searchText)
+
                 this.load()
             },
             checkPosition(row) {
@@ -121,7 +122,7 @@
                 // alert(JSON.stringify(row))
                 console.log("goods position, warehouseId = " + row.warehouseId + ", goodsPosition = " + row.goodsPosition + ", goodsType = " + row.goodsType)
                 this.currentWarehouseId = row.warehouseId
-
+                /* set goods type */
                 this.goodsImgUrl = require('../assets/' + row.goodsType + '.png')
 
                 this.obj = document.getElementById("goodsImg");
@@ -129,6 +130,7 @@
                 console.log("checkPosition obj goodsImg = " + document.getElementById("goodsImg"))
                 console.log("checkPosition obj main = " + document.getElementById("main"))
                 // console.log("this.obj = " + this.obj)
+                /* set goods position */
                 this.obj.setAttribute("class", "style" + row.goodsPosition);
                 // document.getElementById("goodsImg").style.cssText += "position: relative;top: 170px; left: -250px;"
 

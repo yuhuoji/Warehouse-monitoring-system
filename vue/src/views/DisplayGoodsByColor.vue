@@ -19,9 +19,8 @@ red blue yellow green
 
         <div class="title" style="margin: 10px 0 0 0 ;text-align:center;">
             <h1>Goods Color Pie Chart</h1>
+            <div id="myChart" ref="myChart" :style="{width: '90%', height:'90vh',display:'flex'}"></div>
         </div>
-
-        <div id="myChart" ref="myChart" :style="{width: '90%', height:'90vh',display:'flex'}"></div>
 
     </div>
 </template>
@@ -43,7 +42,7 @@ red blue yellow green
                 ],
                 pieOption: {},
                 valueOption: {},
-                chartOption:{}, //default
+                chartOption: {}, //default
             }
         },
         created() {

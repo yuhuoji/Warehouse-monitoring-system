@@ -25,6 +25,7 @@ npm run build
 # NPM
 $ npm install @element-plus/icons-vue
 ```
+
 #### Register all icons
 ```
 const app = createApp(App)
@@ -32,6 +33,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 ```
+
 ## Directory structure description  
 ```
 .

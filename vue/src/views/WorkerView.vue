@@ -152,16 +152,18 @@
                 request.post("/worker/insert", this.addForm).then(res => {
                     console.log("/worker/insert res = " + res + "res.code = " + res.code)
                     if (res.code === "1") {
-                        this.$message({type: "success", message: "Insert successfully"})
+                        this.$message({type: "success", message: "Insert successfully."})
                         this.load()
                     } else {
-                        this.$message({type: "error", message: res.data.msg})
+                        this.$message({type: "error", message: "Insertion failed."})
                     }
                 })
                 this.dialogVisible = false
             },
             handleEdit(row) {
-                console.log("handleEdit= ")
+                console.log("handleEdit = " + row)
+                this.addForm = row
+                this.dialogVisible = true
             },
             handleDelete(row) {
                 console.log("handleDelete= row.workerId = " + row.workerId)

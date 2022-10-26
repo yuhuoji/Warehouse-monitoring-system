@@ -28,12 +28,15 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     public int saveWarehouse(Warehouse warehouse) {
         Warehouse insertWarehouse = new Warehouse();
-        /* id自增 */
+        List<Integer> warehouseIdList = warehouseMapper.selectAllWarehouseId();
+        if (warehouseIdList.contains(warehouse.getWarehouseId())){
+            return 0;
+        }
         insertWarehouse.setWarehouseId(warehouse.getWarehouseId());
         insertWarehouse.setWarehouseName(warehouse.getWarehouseName());
         System.out.println("insertWarehouse = " + insertWarehouse);
-        int insert = warehouseMapper.insert(insertWarehouse);
-        System.out.println("insert = " + insert);
+        int insert = warehouseMapper.insert(insertWarehouse); //success 1, failure 0
+        System.out.println("warehouse insert = " + insert);
         return insert;
     }
 

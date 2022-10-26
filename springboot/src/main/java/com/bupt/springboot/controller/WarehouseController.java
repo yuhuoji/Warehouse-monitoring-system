@@ -25,7 +25,7 @@ public class WarehouseController {
         if (insert == 1) {
             return Result.success();
         } else {
-            return Result.error("0", "Save error.(PostMapping)");
+            return Result.error("0", "Saved error.");
         }
     }
 

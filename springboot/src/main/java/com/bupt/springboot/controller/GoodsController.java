@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+import static org.apache.coyote.http11.Constants.a;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/goods")
@@ -17,7 +19,25 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    /* 返回所有的goods */
+    /**
+     * @param String
+     * @return result
+     */
+  /*  @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public Result<?> search(RequestParam String searchText) {
+        System.out.println("search" + searchText);
+        if (true) {
+            return Result.success();
+        } else {
+            return Result.error("0", "Search error.");
+        }
+    }*/
+
+    /**
+     * 返回所有的goods
+     *
+     * @return result
+     */
     @RequestMapping(value = "/selectAllGoods", method = RequestMethod.GET)
     public Result<?> selectAllGoods() {
         System.out.println("selectAllGoods");
@@ -25,7 +45,7 @@ public class GoodsController {
         if (goodsList != null) {
             return Result.success(goodsList);
         } else {
-            return Result.error("0", "No data was queried");
+            return Result.error("0", "No data was queried.");
         }
     }
 
@@ -47,8 +67,11 @@ public class GoodsController {
         }
     }
 
-
-    /* 返回goods四种颜色的统计结果 */
+    /**
+     * 返回goods四种颜色的统计结果
+     *
+     * @return result
+     */
     @RequestMapping(value = "/goodsStatisticsByType", method = RequestMethod.GET)
     public Result<?> goodsStatisticsByType() {
         Map<String, Long> goodsTypeMap = goodsService.goodsStatisticsByType();

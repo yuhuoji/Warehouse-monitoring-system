@@ -218,7 +218,10 @@ display the good status (e.g. positions of goods) and information (e.g. the kind
 
             /* TODO handleEdit，还没写完 */
             handleEdit(row) {
-                console.log("handleEdit= ")
+                console.log("handleEdit = " + row.workerId)
+                this.addForm = row
+                this.dialogVisible = true
+
             },
 
             handleDelete(row) {
