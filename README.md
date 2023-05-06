@@ -4,7 +4,20 @@
 
 ## Table of Contents
 
-[TOC]
+- [Warehouse-monitoring-system](#warehouse-monitoring-system)
+  - [Table of Contents](#table-of-contents)
+  - [Project introduction](#project-introduction)
+  - [Languages and Tools](#languages-and-tools)
+  - [Project setup](#project-setup)
+  - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
+  - [Compiles and minifies for production](#compiles-and-minifies-for-production)
+  - [Use Element Plus icon](#use-element-plus-icon)
+    - [Use the package manager to install](#use-the-package-manager-to-install)
+    - [Register all icons](#register-all-icons)
+  - [Directory structure description](#directory-structure-description)
+  - [Interface display](#interface-display)
+  - [License](#license)
+
 
 ------
 

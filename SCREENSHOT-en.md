@@ -4,7 +4,17 @@
 
 ## Table of Contents
 
-[TOC]
+- [**Project operation results and analysis (operation screenshots and description)**](#project-operation-results-and-analysis-operation-screenshots-and-description)
+  - [Table of Contents](#table-of-contents)
+  - [Login interface](#login-interface)
+    - [Login error](#login-error)
+  - [Warehouse management](#warehouse-management)
+  - [Personal information management](#personal-information-management)
+  - [Warehouse information management](#warehouse-information-management)
+  - [Worker management](#worker-management)
+  - [Goods management](#goods-management)
+  - [Goods information visualization](#goods-information-visualization)
+
 
 ------
 
