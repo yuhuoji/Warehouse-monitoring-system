@@ -22,7 +22,7 @@
 
 用户名和密码进行了最长长度的限制，均可以一键清空，密码可以选择隐藏或显示。
 
-![login](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\login.png)
+![login](.\screenshot\login.png)
 
 ------
 
@@ -30,7 +30,7 @@
 
 用户名或密码输入错误。
 
-![login error](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\login error.png)
+![login error](.\screenshot\login error.png)
 
 ------
 
@@ -38,7 +38,7 @@
 
 登陆成功，进入后台管理界面。展示所有仓库id和仓库名称。可以新建仓库或check某个仓库的工人或货物。可以按仓库id进行排序。
 
-![HomeView](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\HomeView.png)
+![HomeView](.\screenshot\HomeView.png)
 
 ------
 
@@ -46,7 +46,7 @@
 
 鼠标悬浮于admin上可查看当前用户的用户名和密码或退出系统。
 
-![personal information](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\personal information.png)
+![personal information](.\screenshot\personal information.png)
 
 ------
 
@@ -54,7 +54,7 @@
 
 查看当前仓库的工人和商品的具体信息。可以增删工人。
 
-![warehouse](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\warehouse.png)
+![warehouse](.\screenshot\warehouse.png)
 
 ------
 
@@ -62,9 +62,9 @@
 
 可以查看所有工人。增加或者删除工人。
 
-![worker1](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\worker1.png)
+![worker1](.\screenshot\worker1.png)
 
-![add a worker](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\add a worker.png)
+![add a worker](.\screenshot\add a worker.png)
 
 ------
 
@@ -72,11 +72,11 @@
 
 查看所有商品的具体信息。
 
-![goods](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods.png)
+![goods](.\screenshot\goods.png)
 
 可以查看某个商品的具体位置。
 
-![goods position](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods position.png)
+![goods position](.\screenshot\goods position.png)
 
 ------
 
@@ -84,12 +84,12 @@
 
 将所有商品按颜色分类，用饼图呈现。
 
-![goods by color](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods by color.png)
+![goods by color](.\screenshot\goods by color.png)
 
 按照商品进入仓库的时间用折线图展示。
 
-![goods by time-light](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods by time-light.png)
+![goods by time-light](.\screenshot\goods by time-light.png)
 
 暗黑背景
 
-![goods by time-dark](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods by time-dark.png)
+![goods by time-dark](.\screenshot\goods by time-dark.png)

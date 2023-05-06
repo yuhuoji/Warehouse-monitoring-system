@@ -22,7 +22,7 @@
 
 The maximum length of the user name and password can be cleared with one key, and the password can be hidden or displayed.
 
-![login](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\login.png)
+![login](.\screenshot\login.png)
 
 ------
 
@@ -30,7 +30,7 @@ The maximum length of the user name and password can be cleared with one key, an
 
 The user name or password is incorrect.
 
-![login error](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\login error.png)
+![login error](.\screenshot\login error.png)
 
 ------
 
@@ -38,7 +38,7 @@ The user name or password is incorrect.
 
 Log in successfully and enter the background management interface. Displays all warehouse ids and warehouse names. You can create a new warehouse or check workers or goods in a warehouse. You can sort by warehouse id.
 
-![HomeView](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\HomeView.png)
+![HomeView](.\screenshot\HomeView.png)
 
 ------
 
@@ -46,7 +46,7 @@ Log in successfully and enter the background management interface. Displays all 
 
 Hover the mouse over admin to view the user name and password of the current user or exit the system.
 
-![personal information](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\personal information.png)
+![personal information](.\screenshot\personal information.png)
 
 ------
 
@@ -54,7 +54,7 @@ Hover the mouse over admin to view the user name and password of the current use
 
 View specific information about the workers and goods in the current warehouse. Workers can be added or removed.
 
-![warehouse](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\warehouse.png)
+![warehouse](.\screenshot\warehouse.png)
 
 ------
 
@@ -62,9 +62,9 @@ View specific information about the workers and goods in the current warehouse. 
 
 View all the workers. Add or remove workers.
 
-![worker1](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\worker1.png)
+![worker1](.\screenshot\worker1.png)
 
-![add a worker](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\add a worker.png)
+![add a worker](.\screenshot\add a worker.png)
 
 ------
 
@@ -72,11 +72,11 @@ View all the workers. Add or remove workers.
 
 View the specific information of all goods.
 
-![goods](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods.png)
+![goods](.\screenshot\goods.png)
 
 You can view the specific location of an item.
 
-![goods position](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods position.png)
+![goods position](.\screenshot\goods position.png)
 
 ------
 
@@ -84,12 +84,12 @@ You can view the specific location of an item.
 
 Classify all products by color and present them in pie charts.
 
-![goods by color](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods by color.png)
+![goods by color](.\screenshot\goods by color.png)
 
 Use a line chart to show the time when the goods enter the warehouse.
 
-![goods by time-light](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods by time-light.png)
+![goods by time-light](.\screenshot\goods by time-light.png)
 
 Dark background
 
-![goods by time-dark](C:\Users\Legion\Documents\IdeaProjects\vueSpringbootWebProject\springboot-vue-warehouse\screenshot\goods by time-dark.png)
+![goods by time-dark](.\screenshot\goods by time-dark.png)
