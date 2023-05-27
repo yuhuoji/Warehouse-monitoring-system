@@ -197,4 +197,4 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 ## License
 
-[MIT](https://github.com/RichardLitt/standard-readme/blob/main/LICENSE)
+[MIT](./LICENSE)
