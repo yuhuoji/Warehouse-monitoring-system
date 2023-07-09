@@ -1,7 +1,5 @@
 # Warehouse-monitoring-system 
 
-------
-
 ## Table of Contents
 
 - [Warehouse-monitoring-system](#warehouse-monitoring-system)

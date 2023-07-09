@@ -4,16 +4,15 @@
 
 ## Table of Contents
 
-- [**Project operation results and analysis (operation screenshots and description)**](#project-operation-results-and-analysis-operation-screenshots-and-description)
-  - [Table of Contents](#table-of-contents)
-  - [Login interface](#login-interface)
-    - [Login error](#login-error)
-  - [Warehouse management](#warehouse-management)
-  - [Personal information management](#personal-information-management)
-  - [Warehouse information management](#warehouse-information-management)
-  - [Worker management](#worker-management)
-  - [Goods management](#goods-management)
-  - [Goods information visualization](#goods-information-visualization)
+- [Table of Contents](#table-of-contents)
+- [Login interface](#login-interface)
+  - [Login error](#login-error)
+- [Warehouse management](#warehouse-management)
+- [Personal information management](#personal-information-management)
+- [Warehouse information management](#warehouse-information-management)
+- [Worker management](#worker-management)
+- [Goods management](#goods-management)
+- [Goods information visualization](#goods-information-visualization)
 
 
 ------
@@ -22,7 +21,7 @@
 
 The maximum length of the user name and password can be cleared with one key, and the password can be hidden or displayed.
 
-![login](.\screenshot\login.png)
+![login](doc\screenshot\login.png)
 
 ------
 
@@ -30,7 +29,7 @@ The maximum length of the user name and password can be cleared with one key, an
 
 The user name or password is incorrect.
 
-![login error](.\screenshot\login error.png)
+![login error](doc\screenshot\login%20error.png)
 
 ------
 
@@ -38,7 +37,7 @@ The user name or password is incorrect.
 
 Log in successfully and enter the background management interface. Displays all warehouse ids and warehouse names. You can create a new warehouse or check workers or goods in a warehouse. You can sort by warehouse id.
 
-![HomeView](.\screenshot\HomeView.png)
+![HomeView](doc\screenshot\HomeView.png)
 
 ------
 
@@ -46,7 +45,7 @@ Log in successfully and enter the background management interface. Displays all 
 
 Hover the mouse over admin to view the user name and password of the current user or exit the system.
 
-![personal information](.\screenshot\personal information.png)
+![personal information](doc\screenshot\personal%20information.png)
 
 ------
 
@@ -54,7 +53,7 @@ Hover the mouse over admin to view the user name and password of the current use
 
 View specific information about the workers and goods in the current warehouse. Workers can be added or removed.
 
-![warehouse](.\screenshot\warehouse.png)
+![warehouse](doc\screenshot\warehouse.png)
 
 ------
 
@@ -62,9 +61,9 @@ View specific information about the workers and goods in the current warehouse. 
 
 View all the workers. Add or remove workers.
 
-![worker1](.\screenshot\worker1.png)
+![worker1](doc\screenshot\worker1.png)
 
-![add a worker](.\screenshot\add a worker.png)
+![add a worker](doc\screenshot\add%20a%20worker.png)
 
 ------
 
@@ -72,11 +71,11 @@ View all the workers. Add or remove workers.
 
 View the specific information of all goods.
 
-![goods](.\screenshot\goods.png)
+![goods](doc\screenshot\goods.png)
 
 You can view the specific location of an item.
 
-![goods position](.\screenshot\goods position.png)
+![goods position](doc\screenshot\goods%20position.png)
 
 ------
 
@@ -84,12 +83,12 @@ You can view the specific location of an item.
 
 Classify all products by color and present them in pie charts.
 
-![goods by color](.\screenshot\goods by color.png)
+![goods by color](doc\screenshot\goods%20by%20color.png)
 
 Use a line chart to show the time when the goods enter the warehouse.
 
-![goods by time-light](.\screenshot\goods by time-light.png)
+![goods by time-light](doc\screenshot\goods%20by%20time-light.png)
 
 Dark background
 
-![goods by time-dark](.\screenshot\goods by time-dark.png)
+![goods by time-dark](doc\screenshot\goods%20by%20time-dark.png)
