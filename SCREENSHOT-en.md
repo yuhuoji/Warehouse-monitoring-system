@@ -21,7 +21,7 @@
 
 The maximum length of the user name and password can be cleared with one key, and the password can be hidden or displayed.
 
-![login](doc\screenshot\login.png)
+<img src="doc\screenshot\login.png" alt="login" style="zoom: 33%;" />
 
 ------
 
@@ -29,7 +29,7 @@ The maximum length of the user name and password can be cleared with one key, an
 
 The user name or password is incorrect.
 
-![login error](doc\screenshot\login%20error.png)
+<img src="doc\screenshot\login%20error.png" alt="login error" style="zoom: 33%;" />
 
 ------
 
@@ -37,7 +37,7 @@ The user name or password is incorrect.
 
 Log in successfully and enter the background management interface. Displays all warehouse ids and warehouse names. You can create a new warehouse or check workers or goods in a warehouse. You can sort by warehouse id.
 
-![HomeView](doc\screenshot\HomeView.png)
+<img src="doc\screenshot\HomeView.png" alt="HomeView" style="zoom: 33%;" />
 
 ------
 
@@ -45,7 +45,7 @@ Log in successfully and enter the background management interface. Displays all 
 
 Hover the mouse over admin to view the user name and password of the current user or exit the system.
 
-![personal information](doc\screenshot\personal%20information.png)
+<img src="doc\screenshot\personal%20information.png" alt="personal information" style="zoom: 33%;" />
 
 ------
 
@@ -53,7 +53,7 @@ Hover the mouse over admin to view the user name and password of the current use
 
 View specific information about the workers and goods in the current warehouse. Workers can be added or removed.
 
-![warehouse](doc\screenshot\warehouse.png)
+<img src="doc\screenshot\warehouse.png" alt="warehouse" style="zoom: 33%;" />
 
 ------
 
@@ -61,9 +61,9 @@ View specific information about the workers and goods in the current warehouse. 
 
 View all the workers. Add or remove workers.
 
-![worker1](doc\screenshot\worker1.png)
+<img src="doc\screenshot\worker1.png" alt="worker1" style="zoom: 33%;" />
 
-![add a worker](doc\screenshot\add%20a%20worker.png)
+<img src="doc\screenshot\add%20a%20worker.png" alt="add a worker" style="zoom: 33%;" />
 
 ------
 
@@ -71,11 +71,11 @@ View all the workers. Add or remove workers.
 
 View the specific information of all goods.
 
-![goods](doc\screenshot\goods.png)
+<img src="doc\screenshot\goods.png" alt="goods" style="zoom: 33%;" />
 
 You can view the specific location of an item.
 
-![goods position](doc\screenshot\goods%20position.png)
+<img src="doc\screenshot\goods%20position.png" alt="goods position" style="zoom: 33%;" />
 
 ------
 
@@ -83,12 +83,12 @@ You can view the specific location of an item.
 
 Classify all products by color and present them in pie charts.
 
-![goods by color](doc\screenshot\goods%20by%20color.png)
+<img src="doc\screenshot\goods%20by%20color.png" alt="goods by color" style="zoom: 33%;" />
 
 Use a line chart to show the time when the goods enter the warehouse.
 
-![goods by time-light](doc\screenshot\goods%20by%20time-light.png)
+<img src="doc\screenshot\goods%20by%20time-light.png" alt="goods by time-light" style="zoom:33%;" />
 
 Dark background
 
-![goods by time-dark](doc\screenshot\goods%20by%20time-dark.png)
+<img src="doc\screenshot\goods%20by%20time-dark.png" alt="goods by time-dark" style="zoom:33%;" />
